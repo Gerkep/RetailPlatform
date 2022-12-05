@@ -64,6 +64,8 @@ const Input = styled.input`
     border-radius: 15px;
     border: 2px gray solid;
     padding-left: 1rem;
+    backdrop-filter: blur(5px);
+    background-color: transparent;
     &:focus {
         outline: none;
     }
