@@ -47,7 +47,7 @@ const SearchInput = () => {
                     <Input ref={ref} placeholder="Search" value={value} onChange={(e) => setValue(e.target.value)}/>
                 </motion.div>
                 <SearchButton>
-                    <FiSearch className="w-6 h-6 cursor-pointer"/>
+                    <FiSearch className="w-6 h-6 cursor-pointer text-black"/>
                 </SearchButton>
             </form>
         </div>

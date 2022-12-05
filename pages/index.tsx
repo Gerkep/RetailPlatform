@@ -12,6 +12,7 @@ const Marketplace = () => {
     <div>
       <FilterContainer filters={filters} filter={filter} setFilter={setFilter} title={"Market"}/>
       <Products />
+      <div className="text-4xl text-green-500">Test</div>
     </div>
   )
 }
