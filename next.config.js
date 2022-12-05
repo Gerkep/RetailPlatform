@@ -1,7 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   swcMinify: true,
-}
-
-module.exports = nextConfig
+    images: {
+      domains: [
+        "gateway.pinatas.cloud",
+        'drive.google.com'
+      ],
+      remotePatterns: [
+        {
+          protocol: "https",
+          hostname: "**",
+        },
+      ],
+    },
+  };
+module.exports = nextConfig;
