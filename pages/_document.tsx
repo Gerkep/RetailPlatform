@@ -1,5 +1,7 @@
 import Document, { DocumentContext, DocumentInitialProps} from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
+import { createGetInitialProps } from '@mantine/next';
+
 
 export default class MyDocument extends Document {
 
