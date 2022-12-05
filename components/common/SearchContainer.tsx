@@ -41,7 +41,7 @@ const SearchInput = () => {
       }, []);
 
     return (
-        <div style={{display: "flex", alignItems: "center"}}>
+        <div style={{display: "flex", alignItems: "center", justifyContent: "flex-end"}}>
             <form ref={formRef} onSubmit={(e) => handleClick(e)}>
                 <motion.div variants={animationVariants} animate={controls} initial="hidden">
                     <Input ref={ref} placeholder="Search" value={value} onChange={(e) => setValue(e.target.value)}/>
@@ -70,7 +70,7 @@ const Input = styled.input`
 `
 const SearchButton = styled.button`
     display: flex;
-    align-items: center;
+    align-items: end;
     background-color: transparent;
 
 `
