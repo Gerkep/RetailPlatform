@@ -3,6 +3,7 @@ import { Listbox, Transition } from '@headlessui/react'
 import { HiCheck, HiChevronDown } from 'react-icons/hi'
 import styles from "../../styles/Home.module.css";
 import Image from "next/image";
+import styled from 'styled-components';
 
 export default function Dropdown({values, value, onChange, error}: any) {
   const [selected, setSelected] = useState('');
@@ -29,7 +30,7 @@ export default function Dropdown({values, value, onChange, error}: any) {
 
   return (
       <Listbox value={selected} onChange={handleChange}>
-        <div className={`relative w-36 sm:w-2/3 h-full z-40`} onClick={() => rotateArrow()}>
+        <DropdownContainer onClick={() => rotateArrow()}>
           <Listbox.Button className={"appearance-none flex items-center justify-end block w-full h-full pr-10 2xl:px-6 relative py-2 rounded-md placeholder-white focus:outline-none text-md 2xl:text-2xl"}>
             <span className="block truncate text-left">{selected ? selected : <div className='text-black'>FILTERS</div>}</span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2 2xl:pr-4">
@@ -76,8 +77,14 @@ export default function Dropdown({values, value, onChange, error}: any) {
               ))}
             </Listbox.Options>
           </Transition>
-        </div>
+        </DropdownContainer>
       </Listbox>
   )
 }
 
+const DropdownContainer = styled.div`
+ position: relative;
+ width: 9.5rem;
+ height: 100%;
+ z-index: 40;
+`

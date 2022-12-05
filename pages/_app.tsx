@@ -6,10 +6,8 @@ import { chain, configureChains, createClient, WagmiConfig } from 'wagmi';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 import Head from 'next/head';
-import { Montserrat } from '@next/font/google'
 import { NotificationsProvider } from '@mantine/notifications';
 
-const montserrat = Montserrat({ subsets: ['latin'] })
 
 const { chains, provider, webSocketProvider } = configureChains(
   [
@@ -38,7 +36,7 @@ const wagmiClient = createClient({
 function MyApp({ Component, pageProps }: AppProps) {
 
   return (
-    <main className={montserrat.className}>
+    <main>
     <Head>
       <meta name="author" content="Piotr Gerke"/>
       <title>Retail Revolution</title>

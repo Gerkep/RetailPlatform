@@ -74,5 +74,6 @@ const SearchButton = styled.button`
     display: flex;
     align-items: end;
     background-color: transparent;
+    color: black;
 
 `
