@@ -11,7 +11,7 @@ const PageTitle = (props: any) => {
 export default PageTitle;
 
 const Title = styled.div`
-    font-size: 5vw;
+    font-size: 7vw;
     line-height: 12vw;
     font-weight: bold;
 `

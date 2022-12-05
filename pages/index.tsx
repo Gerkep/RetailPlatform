@@ -10,7 +10,7 @@ const Marketplace = () => {
   const [filter, setFilter] = useState('New');
   return (
     <div>
-      <FilterContainer filters={filters} filter={filter} setFilter={setFilter} title={"Marketplace"}/>
+      <FilterContainer filters={filters} filter={filter} setFilter={setFilter} title={"Market"}/>
       <Products />
     </div>
   )

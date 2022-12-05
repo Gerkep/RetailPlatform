@@ -41,13 +41,13 @@ const SearchInput = () => {
       }, []);
 
     return (
-        <div>
+        <div style={{display: "flex", alignItems: "center"}}>
             <form ref={formRef} onSubmit={(e) => handleClick(e)}>
                 <motion.div variants={animationVariants} animate={controls} initial="hidden">
                     <Input ref={ref} placeholder="Search" value={value} onChange={(e) => setValue(e.target.value)}/>
                 </motion.div>
                 <SearchButton>
-                    <FiSearch className="w-7 h-7 ml-3 cursor-pointer"/>
+                    <FiSearch className="w-6 h-6 cursor-pointer"/>
                 </SearchButton>
             </form>
         </div>
@@ -71,5 +71,6 @@ const Input = styled.input`
 const SearchButton = styled.button`
     display: flex;
     align-items: center;
+    background-color: transparent;
 
 `
