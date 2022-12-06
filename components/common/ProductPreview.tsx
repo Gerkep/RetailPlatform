@@ -1,15 +1,17 @@
 import styled from "styled-components";
-import shoe from "../../public/img/lvshoe.png";
 import Image from "next/image";
+import Link from "next/link";
 
-const ProductPreview = () => {
+const ProductPreview = ({image, price}: any) => {
     return (
+        <Link href="/item/1">
         <PreviewContainer>
             <PreviewImage>
-                <Image alt="product img" layout='fill' objectFit='contain' src={shoe}></Image>
+                <Image alt="product img" style={{width: "100%", height: "auto"}} src={image}></Image>
             </PreviewImage>
-            <ProductPrice>$324</ProductPrice>
+            <ProductPrice>${price}</ProductPrice>
         </PreviewContainer>
+        </Link>
     )
 }
 
@@ -23,17 +25,23 @@ const PreviewContainer = styled.div`
     background-color: #F1F1F1;
     border-radius: 15px;
     position: relative;
+    cursor: pointer;
 `
 const PreviewImage = styled.div`
-    width: 90%;
-    height: 80%;
+    width: 95%;
+    height: 85%;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 0 auto;
 `
 
 const ProductPrice = styled.div`
-    font-size: 0.7em;
-    width: 90%;
+    font-size: 1em;
+    margin: 0 auto;
+    margin-top: 1vw;
+    width: 95%;
     font-weight: 700;
     white-space: nowrap;
     overflow: hidden;

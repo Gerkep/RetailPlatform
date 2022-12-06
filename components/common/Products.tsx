@@ -1,18 +1,20 @@
 import styled from "styled-components";
 import ProductPreview from "./ProductPreview";
+import shoe from "../../public/img/lvshoe.png";
+import bag from "../../public/img/lvbag.png";
 
 const Products = () => {
     return (
         <Container>
-            <ProductPreview />
-            <ProductPreview />
-            <ProductPreview />
-            <ProductPreview />
-            <ProductPreview />
-            <ProductPreview />
-            <ProductPreview />
-            <ProductPreview />
-            <ProductPreview />
+            <ProductPreview image={shoe} price="325"/>
+            <ProductPreview image={bag} price="325"/>
+            <ProductPreview image={bag} price="325"/>
+            <ProductPreview image={shoe} price="325"/>
+            <ProductPreview image={shoe} price="325"/>
+            <ProductPreview image={bag} price="325"/>
+            <ProductPreview image={shoe} price="325"/>
+            <ProductPreview image={bag} price="325"/>
+            <ProductPreview image={shoe} price="325"/>
             
         </Container>
     )

@@ -61,7 +61,7 @@ const Input = styled.input`
     margin-top: 2.5rem;
     right: 2rem;
     height: 2.5rem;
-    border-radius: 15px;
+    border-radius: 10px;
     border: 1px black solid;
     padding-left: 1rem;
     backdrop-filter: blur(5px);
