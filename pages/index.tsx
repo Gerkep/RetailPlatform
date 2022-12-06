@@ -1,8 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import FilterContainer from "../components/common/FilterContainer";
-import Products from "../components/common/Products";
-import ProductPreview from "../components/marketplace/ProductPreview";
+import Products from "../components/product/Products";
 
 const filters = ["From lowest $", "From highest $", "New"]
 const Marketplace = () => {

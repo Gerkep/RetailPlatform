@@ -9,7 +9,7 @@ const ProductPreview = ({image, price}: any) => {
             <PreviewImage>
                 <Image alt="product img" style={{width: "100%", height: "auto"}} src={image}></Image>
             </PreviewImage>
-            <ProductPrice>${price}</ProductPrice>
+            <ProductPrice>{price}</ProductPrice>
         </PreviewContainer>
         </Link>
     )

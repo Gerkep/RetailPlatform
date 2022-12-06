@@ -30,9 +30,10 @@ const Button = styled.button`
     border-radius: 10px;
     font-weight: 900;
     text-align: center;
-    font-size: 1.2em;
+    font-size: 1em;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 2px 2px 25px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
 `
