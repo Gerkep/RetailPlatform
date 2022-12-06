@@ -8,10 +8,9 @@ const MainInfo = (props: {owner: string, invoice: string, condition: string}) =>
         <ProductProps>
             <Prop>
                 <Label>Owner</Label>
-                    <PropValue>{props.owner}
-                    <IconContainer>
-                        <Image alt="product img" style={{width: "0.7rem", height: "0.7rem"}} src={searchIcon}></Image>
-                    </IconContainer>
+                    <PropValue>
+                    {props.owner}
+                    <Image alt="search" style={{width: "0.7rem", height: "0.7rem", marginLeft: "0.5rem"}} src={searchIcon}></Image>
                 </PropValue>
             </Prop>
             <Prop>
@@ -42,12 +41,6 @@ const PropValue = styled.p`
     font-weight: 500;
     font-size: 0.8em;
     display: flex;
-`
-
-const IconContainer = styled.div`
-    margin-left: 0.5rem;
-    width: 1rem;
-    height: 1rem;
     display: flex;
     align-items: center;
 `
