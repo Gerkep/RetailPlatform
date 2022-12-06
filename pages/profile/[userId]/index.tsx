@@ -28,13 +28,13 @@ const Profile = () => {
             }
             {option === "all" ? 
              <OwnedProducts>
-                 <Link href="/item/1">
+                 <Link href="/item/1" style={{width: "100%", display: "flex", justifyContent: "center"}}>
                     <BigPreview image={shoe}/>
                  </Link>
-                 <Link href="/item/1">
+                 <Link href="/item/1" style={{width: "100%", display: "flex", justifyContent: "center"}}>
                     <BigPreview image={bag}/>
                  </Link>
-                 <Link href="/item/1">
+                 <Link href="/item/1" style={{width: "100%", display: "flex", justifyContent: "center"}}>
                     <BigPreview image={shoe}/>
                  </Link>
             </OwnedProducts>        
