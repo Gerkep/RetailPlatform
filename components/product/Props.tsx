@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Label from "../common/Label";
 import searchIcon from "../../public/img/icons/searchIcon.png";
 import Image from "next/image";
+import Link from "next/link";
 
 const MainInfo = (props: {owner: string, invoice: string, condition: string}) => {
     return (
@@ -9,9 +10,13 @@ const MainInfo = (props: {owner: string, invoice: string, condition: string}) =>
             <Prop>
                 <Label>Owner</Label>
                     <PropValue>
-                    {props.owner}
-                    <Image alt="search" style={{width: "0.7rem", height: "0.7rem", marginLeft: "0.5rem"}} src={searchIcon}></Image>
-                </PropValue>
+                        <Link href="/profile/gerke.eth">
+                            {props.owner}
+                        </Link>
+                        <Link href="/profile/gerke.eth">
+                            <Image alt="search" style={{width: "0.7rem", height: "0.7rem", marginLeft: "0.5rem"}} src={searchIcon}></Image>
+                        </Link>
+                    </PropValue>
             </Prop>
             <Prop>
                 <Label>Invoice</Label>

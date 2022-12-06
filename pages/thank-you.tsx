@@ -78,7 +78,7 @@ const ContinueButton = styled.button`
 
 const ProfileButton = styled.button`
     margin: 0 auto;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     background-color: #F5F5F5;
     color: black;
     width: 90%;

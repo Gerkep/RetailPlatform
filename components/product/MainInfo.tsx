@@ -18,7 +18,7 @@ const MainProductInfo = styled.div`
     padding: 1rem;
     display: grid; 
     grid-template-columns: 1.4fr 0.6fr; 
-    grid-template-rows: 0.8fr 1.2fr; 
+    grid-template-rows: 1fr 1.2fr; 
     gap: 0px 0px; 
     grid-template-areas: 
     "product-name product-price"

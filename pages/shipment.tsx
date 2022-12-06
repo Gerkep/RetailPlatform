@@ -43,9 +43,13 @@ const ShipmentInfo = () => {
             <Prop>
                 <Label>Seller</Label>
                     <PropValue>
-                    gerke.eth
-                    <Image alt="search" style={{width: "0.7rem", height: "0.7rem", marginLeft: "0.5rem"}} src={searchIcon}></Image>
-                </PropValue>
+                        <Link href="/profile/gerke.eth">
+                            gerke.eth
+                        </Link>
+                        <Link href="/profile/gerke.eth">
+                            <Image alt="search" style={{width: "0.7rem", height: "0.7rem", marginLeft: "0.5rem"}} src={searchIcon}></Image>
+                        </Link>
+                    </PropValue>
             </Prop>
             <PreviewContainer>
                 <LongPreview />
@@ -95,7 +99,6 @@ const Prop = styled.div`
 const PropValue = styled.p`
     font-weight: 500;
     font-size: 0.8em;
-    display: flex;
     display: flex;
     align-items: center;
 `
