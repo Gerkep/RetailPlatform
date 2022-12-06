@@ -6,10 +6,12 @@ import ProductPreview from "../components/product/ProductPreview";
 import shoe from "../public/img/lvshoe.png";
 import ActionButton from "../components/common/ActionButton";
 import Link from "next/link";
+import LoadingPage from "../components/common/LoadingPage";
 
 const Success = () => {
     return (
         <SuccessContainer>
+            <LoadingPage />
             <Image alt="search" style={{width: "5rem", height: "5rem", margin: "0 auto"}} src={tick}></Image>
             <SuccessTitle>Success!</SuccessTitle>
             <SuccessDescription>Air Match-Up Sneakers are on their way to your doorstep</SuccessDescription>

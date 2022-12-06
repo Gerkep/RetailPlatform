@@ -7,10 +7,12 @@ import LongPreview from "../components/product/LongPreview";
 import Link from "next/link";
 import ActionButton from "../components/common/ActionButton";
 import bagIcon from "../public/img/icons/bagIcon.png";
+import LoadingPage from "../components/common/LoadingPage";
 
 const ShipmentInfo = () => {
     return (
         <ShipmentContent>
+            <LoadingPage />
             <TitleContainer>
                 <PageTitle>Delivery details</PageTitle>
             </TitleContainer>

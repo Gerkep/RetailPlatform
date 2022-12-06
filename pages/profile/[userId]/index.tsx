@@ -4,15 +4,17 @@ import BigPreview from "../../../components/product/BigPreview";
 import shoe from "../../../public/img/lvshoe.png";
 import bag from "../../../public/img/lvbag.png";
 import Link from "next/link";
+import LoadingPage from "../../../components/common/LoadingPage";
 
 const Profile = () => {
 
     const [option, setOption] = useState("all");
     return (
         <ProfileContainer>
-        <ProfileHeader>
-            <Username>gerke.eth</Username>
-        </ProfileHeader>
+            <LoadingPage />
+            <ProfileHeader>
+                <Username>gerke.eth</Username>
+            </ProfileHeader>
             {option === "all" ? 
             <ProfileNavbar>
                 <NavButtonSelected onClick={() => setOption("all")}>ALL ITEMS</NavButtonSelected>

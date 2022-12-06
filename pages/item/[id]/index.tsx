@@ -7,10 +7,12 @@ import Props from "../../../components/product/Props";
 import ProductImage from "../../../components/product/ProductImage";
 import MainInfo from "../../../components/product/MainInfo";
 import Link from "next/link";
+import LoadingPage from "../../../components/common/LoadingPage";
 
 const Product = () => {
     return (
         <PageContainer>
+            <LoadingPage />
             <ProductImage image={shoe}/>
             <MainInfo name="Match-Up Sneaker" brand="Louis Vuitton" price="324"/>
             <Description>

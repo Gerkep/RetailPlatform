@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styled from "styled-components";
+import LoadingPage from "../components/common/LoadingPage";
 import FilterContainer from "../components/common/FilterContainer";
 import Products from "../components/product/Products";
 
@@ -9,6 +9,7 @@ const Marketplace = () => {
   const [filter, setFilter] = useState('New');
   return (
     <div>
+      <LoadingPage />
       <FilterContainer filters={filters} filter={filter} setFilter={setFilter} title={"Market"}/>
       <Products />
     </div>
