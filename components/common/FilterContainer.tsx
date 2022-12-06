@@ -23,11 +23,13 @@ const MainContainer = styled.div`
   position: sticky;
   top: 0rem;
   display: flex;
+  z-index: 100;
   justify-content: space-between;
   flex-wrap: no-wrap;
   align-items: center;
   width: 100%;
-  padding: 1rem 2rem 1rem 2rem;
+  padding: 1rem 1.5rem 1rem 1.5rem;
   margin-top: 3rem;
+  background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
 `

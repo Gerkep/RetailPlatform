@@ -62,10 +62,11 @@ const Input = styled.input`
     right: 2rem;
     height: 2.5rem;
     border-radius: 15px;
-    border: 2px gray solid;
+    border: 1px black solid;
     padding-left: 1rem;
     backdrop-filter: blur(5px);
-    background-color: transparent;
+    -webkit-backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.7);
     &:focus {
         outline: none;
     }
