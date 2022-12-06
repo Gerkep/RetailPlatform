@@ -5,6 +5,7 @@ import styled from "styled-components";
 import ProductPreview from "../components/product/ProductPreview";
 import shoe from "../public/img/lvshoe.png";
 import ActionButton from "../components/common/ActionButton";
+import Link from "next/link";
 
 const Success = () => {
     return (
@@ -15,13 +16,17 @@ const Success = () => {
             <PreviewContainer>
                 <ProductPreview image={shoe} price=""/>
             </PreviewContainer>
-            <ContinueButton>
-                <Image alt="buy icon" style={{width: "1.2rem", height: "1.2rem", marginRight: "1rem"}} src={bag}></Image>
-                CONTINUE SHOPPING
-            </ContinueButton>
-            <ProfileButton>
-                VIEW PROFILE
-            </ProfileButton>
+            <Link href="/">
+                <ContinueButton>
+                    <Image alt="buy icon" style={{width: "1.2rem", height: "1.2rem", marginRight: "1rem"}} src={bag}></Image>
+                    CONTINUE SHOPPING
+                </ContinueButton>
+            </Link>
+            <Link href="/profile/gerke.eth">
+                <ProfileButton>
+                    VIEW PROFILE
+                </ProfileButton>
+            </Link>
         </SuccessContainer>
     )
 }
@@ -29,7 +34,7 @@ const Success = () => {
 export default Success;
 
 const SuccessContainer = styled.div`
-    padding-top: 3rem;
+    padding-top: 2.5rem;
 `
 
 const SuccessTitle = styled.h1`
@@ -56,7 +61,7 @@ const PreviewContainer = styled.div`
 `
 const ContinueButton = styled.button`
     margin: 0 auto;
-    margin-top: 1.5rem;
+    margin-top: 2.5rem;
     background-color: black;
     color: white;
     width: 90%;
