@@ -13,7 +13,6 @@ import Navbar from "../components/common/Navbar";
 const ShipmentInfo = () => {
     return (
         <ShipmentContent>
-            <Navbar showShare={false} showProfile={true} />
             <LoadingPage />
             <TitleContainer>
                 <PageTitle>Delivery details</PageTitle>

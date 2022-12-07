@@ -12,7 +12,6 @@ import Navbar from "../components/common/Navbar";
 const Success = () => {
     return (
         <>
-        <Navbar showShare={true} showProfile={true} />
         <SuccessContainer>
             <LoadingPage />
             <Image alt="search" style={{width: "5rem", height: "5rem", margin: "0 auto"}} src={tick}></Image>
