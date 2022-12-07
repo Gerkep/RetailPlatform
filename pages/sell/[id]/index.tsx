@@ -27,7 +27,7 @@ const Product = () => {
             <Centered>
                 <ProductImage image={shoe}/>
             </Centered>
-            <MainInfo name="Match-Up Sneaker" brand="Louis Vuitton">$<PriceInput placeholder="123" /></MainInfo>
+            <MainInfo name="Match-Up Sneaker" brand="Louis Vuitton"><div style={{fontSize: "1.2em"}}>$<PriceInput placeholder="123" /></div></MainInfo>
             <InputContainer>
                     <Label>Description</Label>
                     <TextArea placeholder="Your item description"></TextArea>
@@ -60,7 +60,7 @@ const InputContainer = styled.div`
 `
 
 const PriceInput = styled.input`
-    width: 4rem;
+    width: 4.5rem;
     height: 2rem;
     margin-left: 0.3rem;
     background-color: #F2F2F2;
@@ -68,7 +68,6 @@ const PriceInput = styled.input`
     outline: none;
     border-radius: 10px;
     padding-left: 0.5rem;
-    font-size: 1em;
 `
 
 const TextArea = styled.textarea`
