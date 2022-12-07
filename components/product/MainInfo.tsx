@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import Image from "next/image";
 
-const MainInfo = (props: {name: string, brand: string, price: string}) => {
+const MainInfo = (props: any) => {
     return (
         <MainProductInfo>
             <ProductName><h1>{props.name}</h1></ProductName>
             <ProductBrand>{props.brand}</ProductBrand>
-            <ProductPrice><p>${props.price}</p></ProductPrice>
+            <ProductPrice>{props.children}</ProductPrice>
         </MainProductInfo>
     )
 }
@@ -29,7 +29,6 @@ const ProductName = styled.div`
     font-size: 1.2em;
     margin-top: 1vw;
     font-weight: 700;
-    white-space: nowrap;
     overflow: hidden;
     grid-area: product-name;
 `
@@ -45,9 +44,7 @@ const ProductBrand = styled.div`
 
 const ProductPrice = styled.div`
     text-align: right;
-    font-size: 2em;
     margin-top: 1vw;
-    font-weight: 900;
     white-space: nowrap;
     overflow: hidden;
     grid-area: product-price;

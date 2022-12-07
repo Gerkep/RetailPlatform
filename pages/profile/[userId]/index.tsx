@@ -31,15 +31,9 @@ const Profile = () => {
             }
             {option === "all" ? 
              <OwnedProducts>
-                 <Link href="/item/1" style={{width: "100%", display: "flex", justifyContent: "center"}}>
-                    <BigPreview image={shoe} name="Match-Up Sneaker"/>
-                 </Link>
-                 <Link href="/item/1" style={{width: "100%", display: "flex", justifyContent: "center"}}>
-                    <BigPreview image={bag} name="LV bag"/>
-                 </Link>
-                 <Link href="/item/1" style={{width: "100%", display: "flex", justifyContent: "center"}}>
-                    <BigPreview image={shoe} name="Match-Up Sneaker"/>
-                 </Link>
+                <BigPreview image={shoe} name="Match-Up Sneaker" id="1"/>
+                <BigPreview image={bag} name="LV bag" id="1"/>
+                <BigPreview image={shoe} name="Match-Up Sneaker" id="1"/>
             </OwnedProducts>        
             :
             <NoProductsInfo>

@@ -40,7 +40,7 @@ const ShipmentInfo = () => {
                 </InputContainer>
                 <InputContainer>
                     <Label>Tel. number</Label>
-                    <Input placeholder="721 783 342"></Input>
+                    <Input type="tel" placeholder="721 783 342"></Input>
                 </InputContainer>
             </FormInputs>
             <Prop>

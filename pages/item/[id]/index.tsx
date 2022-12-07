@@ -9,16 +9,17 @@ import MainInfo from "../../../components/product/MainInfo";
 import Link from "next/link";
 import LoadingPage from "../../../components/common/LoadingPage";
 import Navbar from "../../../components/common/Navbar";
+import Centered from "../../../components/common/Centered";
 
 const Product = () => {
     return (
         <PageContainer>
             <Navbar showShare={true} showProfile={true} />
             <LoadingPage />
-            <Center>
+            <Centered>
                 <ProductImage image={shoe}/>
-            </Center>
-            <MainInfo name="Match-Up Sneaker" brand="Louis Vuitton" price="324"/>
+            </Centered>
+            <MainInfo name="Match-Up Sneaker" brand="Louis Vuitton"><Price>$234</Price></MainInfo>
             <Description>
                 Lorem ipsum dolor sit amet, consectetur adipisc elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
@@ -33,14 +34,12 @@ const Product = () => {
 
 export default Product;
 
-const Center = styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: center;
-`
-
 const PageContainer = styled.div`
     padding-bottom: 5rem;
+`
+const Price = styled.p`
+   font-size: 2em;
+   font-weight: 900;
 `
 
 const Description = styled.div`

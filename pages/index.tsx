@@ -3,6 +3,7 @@ import LoadingPage from "../components/common/LoadingPage";
 import FilterContainer from "../components/common/FilterContainer";
 import Products from "../components/product/Products";
 import Navbar from "../components/common/Navbar";
+import Login from "../components/modal/Login";
 
 const filters = ["From lowest $", "From highest $", "New"]
 const Marketplace = () => {

@@ -1,24 +1,26 @@
 import styled from "styled-components";
 import Image from "next/image";
+import Centered from "./Centered";
 
 const ActionButton = ({text, icon}: any) => {
     return (
-        <Center>
-            <Button>
+        <Centered>
+            {icon ?
+             <Button>
                 <Image alt="buy icon" style={{width: "1.2rem", height: "1.2rem", marginRight: "1rem"}} src={icon}></Image>
                 {text}
-            </Button>
-        </Center>
+             </Button>    
+             :
+             <Button>
+                {text}
+             </Button>       
+            }
+        </Centered>
     )
 }
 
 export default ActionButton;
 
-const Center = styled.div`
-    display: flex;
-    justify-content: center;
-    width: 100%;
-`
 const Button = styled.button`
     position: fixed;
     bottom: 1rem;

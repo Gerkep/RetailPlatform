@@ -4,7 +4,7 @@ import searchIcon from "../../public/img/icons/searchIcon.png";
 import Image from "next/image";
 import Link from "next/link";
 
-const MainInfo = (props: {owner: string, invoice: string, condition: string}) => {
+const Props = (props: {owner: string, invoice: string, condition: string}) => {
     return (
         <ProductProps>
             <Prop>
@@ -30,7 +30,7 @@ const MainInfo = (props: {owner: string, invoice: string, condition: string}) =>
     )
 }
 
-export default MainInfo;
+export default Props;
 
 const ProductProps = styled.div`
     width: 100%;
