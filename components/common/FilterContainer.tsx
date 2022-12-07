@@ -28,8 +28,7 @@ const MainContainer = styled.div`
   flex-wrap: no-wrap;
   align-items: center;
   width: 100%;
-  padding: 1rem 1.5rem 1rem 1.5rem;
-  margin-top: 3rem;
-  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  background-color: white;
   backdrop-filter: blur(10px);
 `

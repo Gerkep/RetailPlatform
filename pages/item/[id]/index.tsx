@@ -8,10 +8,12 @@ import ProductImage from "../../../components/product/ProductImage";
 import MainInfo from "../../../components/product/MainInfo";
 import Link from "next/link";
 import LoadingPage from "../../../components/common/LoadingPage";
+import Navbar from "../../../components/common/Navbar";
 
 const Product = () => {
     return (
         <PageContainer>
+            <Navbar showShare={true} showProfile={true} />
             <LoadingPage />
             <ProductImage image={shoe}/>
             <MainInfo name="Match-Up Sneaker" brand="Louis Vuitton" price="324"/>

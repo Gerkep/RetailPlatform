@@ -3,18 +3,27 @@ import Image from "next/image";
 import logo from "../../public/img/lvlogo.png";
 import profileIcon from "../../public/img/icons/profileIcon.png"
 import shareIcon from "../../public/img/icons/shareIcon.png"
+import Link from "next/link";
 
-const Navbar = () => {
+const Navbar = (props: {showShare: boolean, showProfile: boolean}) => {
     return (
         <NavbarContainer>
-            <Image alt="logo" style={{width: "auto", height: "2rem"}} src={logo}></Image>
+            <Link href="/">
+                <Image alt="logo" style={{width: "auto", height: "2rem"}} src={logo}></Image>
+            </Link>
             <Navigation>
-                <NavIcon>
-                    <Image alt="logo" style={{width: "auto", height: "1.7rem"}} src={shareIcon}></Image>
-                </NavIcon>
-                <NavIcon>
-                    <Image alt="logo" style={{width: "auto", height: "1.7rem"}} src={profileIcon}></Image>
-                </NavIcon>
+                {props.showShare && 
+                    <NavIcon>
+                        <Image alt="logo" style={{width: "auto", height: "1.7rem"}} src={shareIcon}></Image>
+                    </NavIcon>
+                }
+                {props.showProfile && 
+                    <Link href="/profile/gerke.eth">
+                        <NavIcon>
+                            <Image alt="logo" style={{width: "auto", height: "1.7rem"}} src={profileIcon}></Image>
+                        </NavIcon>
+                    </Link>
+                }
             </Navigation>
         </NavbarContainer>
     )

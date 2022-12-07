@@ -7,9 +7,12 @@ import shoe from "../public/img/lvshoe.png";
 import ActionButton from "../components/common/ActionButton";
 import Link from "next/link";
 import LoadingPage from "../components/common/LoadingPage";
+import Navbar from "../components/common/Navbar";
 
 const Success = () => {
     return (
+        <>
+        <Navbar showShare={true} showProfile={true} />
         <SuccessContainer>
             <LoadingPage />
             <Image alt="search" style={{width: "5rem", height: "5rem", margin: "0 auto"}} src={tick}></Image>
@@ -24,19 +27,15 @@ const Success = () => {
                     CONTINUE SHOPPING
                 </ContinueButton>
             </Link>
-            <Link href="/profile/gerke.eth">
-                <ProfileButton>
-                    VIEW PROFILE
-                </ProfileButton>
-            </Link>
         </SuccessContainer>
+        </>
     )
 }
 
 export default Success;
 
 const SuccessContainer = styled.div`
-    padding-top: 2.5rem;
+    padding-top: 1.5rem;
 `
 
 const SuccessTitle = styled.h1`

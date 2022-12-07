@@ -8,10 +8,12 @@ import Link from "next/link";
 import ActionButton from "../components/common/ActionButton";
 import bagIcon from "../public/img/icons/bagIcon.png";
 import LoadingPage from "../components/common/LoadingPage";
+import Navbar from "../components/common/Navbar";
 
 const ShipmentInfo = () => {
     return (
         <ShipmentContent>
+            <Navbar showShare={false} showProfile={true} />
             <LoadingPage />
             <TitleContainer>
                 <PageTitle>Delivery details</PageTitle>
