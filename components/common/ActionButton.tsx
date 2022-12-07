@@ -18,7 +18,6 @@ const Center = styled.div`
     display: flex;
     justify-content: center;
     width: 100%;
-    position: fixed;
 `
 const Button = styled.button`
     position: fixed;
