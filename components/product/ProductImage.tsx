@@ -12,10 +12,8 @@ const ProductImage = ({image}: any) => {
 export default ProductImage;
 
 const ImageContainer = styled.div`
-    margin: 0 auto:
     width: 95%;
     height: 20rem;
-    margin-top: 2rem;
     padding: 1rem;
     background-color: #F1F1F1;
     display: flex;

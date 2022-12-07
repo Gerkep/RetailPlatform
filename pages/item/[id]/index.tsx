@@ -15,7 +15,9 @@ const Product = () => {
         <PageContainer>
             <Navbar showShare={true} showProfile={true} />
             <LoadingPage />
-            <ProductImage image={shoe}/>
+            <Center>
+                <ProductImage image={shoe}/>
+            </Center>
             <MainInfo name="Match-Up Sneaker" brand="Louis Vuitton" price="324"/>
             <Description>
                 Lorem ipsum dolor sit amet, consectetur adipisc elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -30,6 +32,12 @@ const Product = () => {
 }
 
 export default Product;
+
+const Center = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+`
 
 const PageContainer = styled.div`
     padding-bottom: 5rem;
