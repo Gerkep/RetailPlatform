@@ -5,12 +5,15 @@ import shoe from "../../../public/img/lvshoe.png";
 import bag from "../../../public/img/lvbag.png";
 import Link from "next/link";
 import LoadingPage from "../../../components/common/LoadingPage";
+import Navbar from "../../../components/common/Navbar";
 
 const Profile = () => {
 
     const [option, setOption] = useState("all");
     return (
+        <>
         <ProfileContainer>
+            <Navbar />
             <LoadingPage />
             <ProfileHeader>
                 <Username>gerke.eth</Username>
@@ -44,6 +47,7 @@ const Profile = () => {
             </NoProductsInfo>  
             }
         </ProfileContainer>
+        </>
     )
 }
 
@@ -54,7 +58,7 @@ const ProfileContainer = styled.div`
 `
 
 const  ProfileHeader = styled.div`
-    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    padding: 0rem 1.5rem 1.5rem 1.5rem;
     width: 100%;
     border-bottom: 1px #C7C7C7 solid;
 `
