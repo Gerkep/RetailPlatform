@@ -62,7 +62,7 @@ const Input = styled.input`
     right: 2rem;
     height: 2.5rem;
     border-radius: 10px;
-    border: 1px black solid;
+    border: 1px black #C0C0C0;
     padding-left: 1rem;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);

@@ -64,7 +64,7 @@ const PriceInput = styled.input`
     height: 2rem;
     margin-left: 0.3rem;
     background-color: #F5F5F5;
-    border: 1px solid black;
+    border: 1px solid #C0C0C0;
     outline: none;
     border-radius: 10px;
     padding-left: 0.5rem;
@@ -75,7 +75,7 @@ const TextArea = styled.textarea`
     height: 6rem;
     margin-top: 0.5rem;
     background-color: #F5F5F5;
-    border: 1px solid black;
+    border: 1px solid #C0C0C0;
     outline: none;
     border-radius: 10px;
     padding: 0.3rem 0.5rem 0.3rem 0.5rem;

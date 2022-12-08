@@ -46,6 +46,7 @@ const Product = () => {
             <FileUploader hoverTitle="Drop here" handleChange={handleChange} name="file" types={fileTypes} multiple={true} label="Drop an image" >
                     {imageList[0] ? 
                     <DropboxContainer>
+                        <div className="w-full text-center text-gray-500">Uploaded:</div>                        
                         {renderUploadedImages()}
                         <div className="w-full text-center text-gray-500 mt-4">Drop/click to add more</div>
                     </DropboxContainer>  
@@ -64,7 +65,7 @@ const Product = () => {
                     <InputContainer>
                         <Label>Date</Label>
                         <DatePicker
-                            className="appearance-none border border-black flex items-center justify-end block w-full h-10 mt-2 pl-2  2xl:px-6 relative py-2 rounded-xl placeholder-white focus:outline-none text-md 2xl:text-2xl"
+                            className="appearance-none border border-[#C0C0C0] bg-[#F5F5F5] flex items-center justify-end block w-full h-10 mt-2 pl-2  2xl:px-6 relative py-2 rounded-xl placeholder-white focus:outline-none text-md 2xl:text-2xl"
                             selected={date}
                             onChange={(date) => setDate(date!)}
                             showTimeSelect
@@ -102,7 +103,7 @@ const Product = () => {
 export default Product;
 
 const Layout = styled.div`
-    width: 90vw;
+    width: 95vw;
     margin: 0 auto;
 `
 const PageContainer = styled.div`
@@ -110,7 +111,7 @@ const PageContainer = styled.div`
 `
 
 const DropboxContainer = styled.div`
-    width: 90vw;
+    width: 95vw;
     height: 60vw;
     background-color: #F1F1F1;
     border-radius: 10px;
@@ -141,7 +142,7 @@ const ShortInput = styled.input`
     height: 2.4rem;
     margin-top: 0.5rem;
     background-color: #F5F5F5;
-    border: 1px solid black;
+    border: 1px solid #C0C0C0;
     outline: none;
     border-radius: 10px;
     padding-left: 0.5rem;
@@ -152,7 +153,7 @@ const Input = styled.input`
     height: 2.4rem;
     margin-top: 0.5rem;
     background-color: #F5F5F5;
-    border: 1px solid black;
+    border: 1px solid #C0C0C0;
     outline: none;
     border-radius: 10px;
     padding-left: 0.5rem;
@@ -164,7 +165,7 @@ const TextArea = styled.textarea`
     height: 6rem;
     margin-top: 0.5rem;
     background-color: #F5F5F5;
-    border: 1px solid black;
+    border: 1px solid #C0C0C0;
     outline: none;
     border-radius: 10px;
     padding: 0.4rem 0.5rem 0.3rem 0.5rem;

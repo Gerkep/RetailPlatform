@@ -7,7 +7,6 @@ import styled from 'styled-components';
 
 export default function Dropdown({values, value, onChange, error, id}: any) {
   const [selected, setSelected] = useState('');
-  const [expanded, setExpanded] = useState(false);
 
   const handleChange = (value: SetStateAction<string>) => {
     setSelected(value)
@@ -20,7 +19,7 @@ export default function Dropdown({values, value, onChange, error, id}: any) {
   return (
       <Listbox value={selected} onChange={handleChange}>
         <DropdownContainer id="button">
-          <Listbox.Button className={"appearance-none border border-black flex items-center block w-full h-10 mt-1 pr-10 pl-2 2xl:px-6 relative py-2 rounded-xl placeholder-white focus:outline-none text-md 2xl:text-2xl"}>
+          <Listbox.Button className={"appearance-none border border-[#C0C0C0] bg-[#F5F5F5] flex items-center block w-full h-10 mt-1 pr-10 pl-2 2xl:px-6 relative py-2 rounded-xl placeholder-white focus:outline-none text-md 2xl:text-2xl"}>
             <span className="block truncate text-left">{selected ? selected : <div className='text-black'>{value}</div>}</span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2 2xl:pr-4">
               <HiChevronDown
