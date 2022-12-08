@@ -20,7 +20,7 @@ export default function Dropdown({values, value, onChange, error, id}: any) {
   return (
       <Listbox value={selected} onChange={handleChange}>
         <DropdownContainer id="button">
-          <Listbox.Button className={"appearance-none border border-black flex items-center block w-full h-1 mt-1 pr-10 pl-2 2xl:px-6 relative py-2 rounded-xl placeholder-white focus:outline-none text-md 2xl:text-2xl"}>
+          <Listbox.Button className={"appearance-none border border-black flex items-center block w-full h-10 mt-1 pr-10 pl-2 2xl:px-6 relative py-2 rounded-xl placeholder-white focus:outline-none text-md 2xl:text-2xl"}>
             <span className="block truncate text-left">{selected ? selected : <div className='text-black'>{value}</div>}</span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2 2xl:pr-4">
               <HiChevronDown

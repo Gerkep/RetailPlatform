@@ -1,7 +1,5 @@
-import shoe from "../public/img/lvshoe.png";
 import styled from "styled-components";
 import ActionButton from "../components/common/ActionButton";
-import ProductImage from "../components/product/ProductImage";
 import LoadingPage from "../components/common/LoadingPage";
 import Navbar from "../components/common/Navbar";
 import Centered from "../components/common/Centered";
@@ -10,62 +8,92 @@ import { useRouter } from "next/router";
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
+import calendarIcon from "../public/img/icons/calendarIcon.png";
+import { FileUploader } from 'react-drag-drop-files';
+import { HiOutlinePhotograph } from "react-icons/hi";
 const fileTypes = ["JPG", "PNG"];
+import Image from "next/image";
 
 const Product = () => {
 
     const [showCallendar, setShowCallendar] = useState(false);
     const [date, setDate] = useState(new Date());
-    
+    const [imageList, setImageList] = useState<any[]>([]);
+
     const router = useRouter();
 
-      const displayCallendar = (e: React.MouseEvent<HTMLElement>) => {
-        e.stopPropagation();
-        setShowCallendar(true)
+      const handleChange = (image: any) => {
+        setImageList([...imageList, image]);
+      };
+  
+      const renderUploadedImages = () => {
+          const uploadedImages = imageList.map((image) => {
+              return (
+                <div key={image} className="w-full text-center text-gray-500">{image[0].name}</div>
+              )
+          })
+          return (
+              <div>
+                  {uploadedImages}
+              </div>
+          )
       }
-
     return (
         <PageContainer>
-            <Navbar showShare={true} showProfile={true} admin={false}/>
+            <Navbar showShare={false} showProfile={true} admin={false}/>
             <LoadingPage />
             <Centered>
-                <ProductImage image={shoe}/>
+            <FileUploader hoverTitle="Drop here" handleChange={handleChange} name="file" types={fileTypes} multiple={true} label="Drop an image" >
+                    {imageList[0] ? 
+                    <DropboxContainer>
+                        {renderUploadedImages()}
+                        <div className="w-full text-center text-gray-500 mt-4">Drop/click to add more</div>
+                    </DropboxContainer>  
+                    :
+                    <DropboxContainer>
+                      <div className="w-full flex justify-center">
+                        <HiOutlinePhotograph className="w-24 h-24 text-gray-300"/>
+                      </div>
+                      <div className="w-full text-center text-gray-500">Drop an image</div>
+                    </DropboxContainer>            
+                    }
+            </FileUploader>
             </Centered>
-            <FirstRow>
+            <Layout>
+                <Row>
+                    <InputContainer>
+                        <Label>Date</Label>
+                        <DatePicker
+                            className="appearance-none border border-black flex items-center justify-end block w-full h-10 mt-2 pl-2  2xl:px-6 relative py-2 rounded-xl placeholder-white focus:outline-none text-md 2xl:text-2xl"
+                            selected={date}
+                            onChange={(date) => setDate(date!)}
+                            showTimeSelect
+                            timeFormat="HH:mm"
+                            timeIntervals={15}
+                            timeCaption="time"
+                            dateFormat="MMMM d, yyyy h:mm aa"
+                        />
+                    </InputContainer>
+                    <ShortInputContainer>
+                        <Label>Supply</Label>
+                        <ShortInput placeholder="1000" />
+                    </ShortInputContainer>
+                </Row>
+                <Row>
                 <InputContainer>
-                    <Label>Product name</Label>
-                    <DatePicker
-                        className="appearance-none border border-black flex items-center justify-end block w-full h-10 mt-2 pl-2 pr-10 2xl:px-6 relative py-2 rounded-xl placeholder-white focus:outline-none text-md 2xl:text-2xl"
-                        selected={date}
-                        onChange={(date) => setDate(date!)}
-                        showTimeSelect
-                        timeFormat="HH:mm"
-                        timeIntervals={15}
-                        timeCaption="time"
-                        dateFormat="MMMM d, yyyy h:mm aa"
-                    />
+                        <Label>Product name</Label>
+                        <Input placeholder="New Product"></Input>
                 </InputContainer>
-            </FirstRow>
-            <InputContainer>
-                    <Label>Description</Label>
-                    <TextArea placeholder="Your item description"></TextArea>
-            </InputContainer>
-            <div style={{display: "flex"}}>
-            <InputContainer>
-                    <Label>Product name</Label>
-                    <Input placeholder="New Product"></Input>
-            </InputContainer>
-            <InputContainer>
-                    <Label>Price $</Label>
-                    <PriceInput placeholder="123" />
-            </InputContainer>
-            <InputContainer>
-                    <Label>Supply</Label>
-                    <PriceInput placeholder="123" />
-                </InputContainer>
-            </div>
+                <ShortInputContainer>
+                        <Label>Price $</Label>
+                        <ShortInput placeholder="123" />
+                </ShortInputContainer>
+                </Row>
+                <Label>Description</Label>
+                <TextArea placeholder="Your item description"></TextArea>
+            </Layout>
             <div onClick={() => router.replace("/drops")}>
-                <ActionButton text="SCHEDULE DROP" icon=""/>
+                <ActionButton text="SCHEDULE DROP" icon={calendarIcon}/>
             </div>
         </PageContainer>
     )
@@ -73,24 +101,46 @@ const Product = () => {
 
 export default Product;
 
+const Layout = styled.div`
+    width: 90vw;
+    margin: 0 auto;
+`
 const PageContainer = styled.div`
     padding-bottom: 7rem;
 `
 
-const FirstRow = styled.div`
+const DropboxContainer = styled.div`
+    width: 90vw;
+    height: 60vw;
+    background-color: #F1F1F1;
+    border-radius: 10px;
+    cursor: pointer;
     display: flex;
-    justify-content: space-between;
-    margin-top: 1rem;
-`
-const InputContainer = styled.div`
-    margin: 0rem 1rem 1rem 1rem;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
 `
 
-const PriceInput = styled.input`
-    width: 5rem;
+const Row = styled.div`
+    display: grid; 
+    grid-template-columns: 1.4fr 0.6fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    ". ."; 
+`
+const InputContainer = styled.div`
+    margin: 0rem 1rem 1rem 0rem;
+`
+const ShortInputContainer = styled.div`
+    margin: 0rem 0rem 1rem 0rem;
+`
+const ShortInput = styled.input`
+    width: 27vw;
     height: 2.4rem;
     margin-top: 0.5rem;
-    background-color: transparent;
+    background-color: #F5F5F5;
     border: 1px solid black;
     outline: none;
     border-radius: 10px;
@@ -98,10 +148,10 @@ const PriceInput = styled.input`
 `
 
 const Input = styled.input`
-    width: 10rem;
+    width: 100%;
     height: 2.4rem;
     margin-top: 0.5rem;
-    background-color: transparent;
+    background-color: #F5F5F5;
     border: 1px solid black;
     outline: none;
     border-radius: 10px;
@@ -113,10 +163,10 @@ const TextArea = styled.textarea`
     width: 100%;
     height: 6rem;
     margin-top: 0.5rem;
-    background-color: transparent;
+    background-color: #F5F5F5;
     border: 1px solid black;
     outline: none;
     border-radius: 10px;
-    padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+    padding: 0.4rem 0.5rem 0.3rem 0.5rem;
     font-size: 1em;
 `
