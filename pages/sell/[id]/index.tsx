@@ -22,7 +22,7 @@ const Product = () => {
 
     return (
         <PageContainer>
-            <Navbar showShare={true} showProfile={true} />
+            <Navbar showShare={true} showProfile={true} admin={true}/>
             <LoadingPage />
             <Centered>
                 <ProductImage image={shoe}/>
@@ -63,8 +63,8 @@ const PriceInput = styled.input`
     width: 4.5rem;
     height: 2rem;
     margin-left: 0.3rem;
-    background-color: #F2F2F2;
-    border: 1px solid #A1A1A1;
+    background-color: transparent;
+    border: 1px solid black;
     outline: none;
     border-radius: 10px;
     padding-left: 0.5rem;
@@ -72,10 +72,10 @@ const PriceInput = styled.input`
 
 const TextArea = styled.textarea`
     width: 100%;
-    height: 5rem;
+    height: 6rem;
     margin-top: 0.5rem;
-    background-color: #F2F2F2;
-    border: 1px solid #A1A1A1;
+    background-color: transparent;
+    border: 1px solid black;
     outline: none;
     border-radius: 10px;
     padding: 0.3rem 0.5rem 0.3rem 0.5rem;

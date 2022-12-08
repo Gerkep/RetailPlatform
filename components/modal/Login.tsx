@@ -34,8 +34,8 @@ const Input = styled.input`
     width: 100%;
     height: 2rem;
     margin-top: 0.3rem;
-    background-color: #F2F2F2;
-    border: 1px solid #A1A1A1;
+    background-color: transparent;
+    border: 1px solid black;
     outline: none;
     border-radius: 10px;
     padding-left: 0.5rem;

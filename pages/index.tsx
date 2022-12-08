@@ -11,7 +11,7 @@ const Marketplace = () => {
   const [filter, setFilter] = useState('New');
   return (
     <div>
-      <Navbar showShare={false} showProfile={true} />
+      <Navbar showShare={false} showProfile={true} admin={true}/>
       <LoadingPage />
       <FilterContainer filters={filters} filter={filter} setFilter={setFilter} title={"Market"}/>
       <Products />

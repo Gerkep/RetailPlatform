@@ -31,7 +31,7 @@ export default BigPreview;
 const ImageContainer = styled.div`
     width: 95%;
     margin-top: 0.5rem;
-    padding: 3rem 1rem 3rem 1rem;
+    padding: 2rem 1rem 2rem 1rem;
     background-color: #F1F1F1;
     display: flex;
     justify-content: center;

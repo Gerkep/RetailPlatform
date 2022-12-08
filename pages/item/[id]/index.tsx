@@ -14,7 +14,7 @@ import Centered from "../../../components/common/Centered";
 const Product = () => {
     return (
         <PageContainer>
-            <Navbar showShare={true} showProfile={true} />
+            <Navbar showShare={true} showProfile={true} admin={true}/>
             <LoadingPage />
             <Centered>
                 <ProductImage image={shoe}/>
@@ -26,7 +26,7 @@ const Product = () => {
             </Description>
             <Props owner="gerke.eth" invoice="With VAT invoice" condition="New"/>
             <Link href="/shipment">
-                <ActionButton text="BUY NOW" icon={bagIcon}/>
+                <ActionButton text="ORDER NOW" icon={bagIcon}/>
             </Link>
         </PageContainer>
     )
