@@ -8,7 +8,7 @@ import Navbar from "../components/common/Navbar";
 const Upcoming = () => {
     return (
         <div>
-            <Navbar showShare={false} showProfile={true} admin={true} home={false}/>
+            <Navbar showProfile={true} admin={true} showHome={true} showUpcoming={false}/>
             <TitleContainer>
                 <PageTitle>Upcoming</PageTitle>
             </TitleContainer>

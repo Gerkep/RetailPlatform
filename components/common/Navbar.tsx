@@ -5,10 +5,11 @@ import profileIcon from "../../public/img/icons/profileIcon.png"
 import shareIcon from "../../public/img/icons/shareIcon.png"
 import plusIcon from "../../public/img/icons/plusIcon.png";
 import marketplaceIcon from "../../public/img/icons/marketplaceIcon.png";
+import calendarIcon from "../../public/img/icons/calendarBlackIcon.png";
 import Link from "next/link";
 
-const Navbar = (props: {showShare: boolean, showProfile: boolean, admin: boolean, home: boolean}) => {
-    const {showShare, showProfile, admin, home} = props;
+const Navbar = (props: {showProfile: boolean, admin: boolean, showHome: boolean, showUpcoming: boolean}) => {
+    const {showProfile, admin, showHome, showUpcoming} = props;
 
     return (
         <NavbarContainer>
@@ -23,10 +24,13 @@ const Navbar = (props: {showShare: boolean, showProfile: boolean, admin: boolean
                         </NavIcon>
                     </Link>
                 }   
-                {showShare && 
-                    <NavIcon>
-                        <Image alt="logo" style={{width: "auto", height: "1.7rem"}} src={shareIcon}></Image>
-                    </NavIcon>
+
+                {showUpcoming && 
+                    <Link href="/upcoming">
+                        <NavIcon>
+                            <Image alt="logo" style={{width: "auto", height: "1.7rem"}} src={calendarIcon}></Image>
+                        </NavIcon>
+                    </Link>
                 }
                 {showProfile && 
                     <Link href="/profile/gerke.eth">
@@ -35,8 +39,8 @@ const Navbar = (props: {showShare: boolean, showProfile: boolean, admin: boolean
                         </NavIcon>
                     </Link>
                 }
-                {!home && 
-                    <Link href="/add-drop">
+                {showHome && 
+                    <Link href="/">
                         <NavIcon>
                             <Image alt="logo" style={{width: "auto", height: "1.7rem"}} src={marketplaceIcon}></Image>
                         </NavIcon>

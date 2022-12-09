@@ -40,7 +40,7 @@ const Product = () => {
       }
     return (
         <PageContainer>
-            <Navbar showShare={false} showProfile={true} admin={false}  home={false}/>
+            <Navbar showProfile={true} admin={false}  showHome={true} showUpcoming={true}/>
             <LoadingPage />
             <Centered>
             <FileUploader hoverTitle="Drop here" handleChange={handleChange} name="file" types={fileTypes} multiple={true} label="Drop an image" >

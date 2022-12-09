@@ -22,7 +22,7 @@ const Product = () => {
 
     return (
         <PageContainer>
-            <Navbar showShare={true} showProfile={true} admin={true}  home={false}/>
+            <Navbar showProfile={true} admin={true}  showHome={true} showUpcoming={true}/>
             <LoadingPage />
             <Centered>
                 <ProductImage image={shoe}/>
