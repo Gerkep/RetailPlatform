@@ -17,20 +17,20 @@ export default function Dropdown({values, value, onChange, error}: any) {
   };
 
 
-  const rotateArrow = () => {
-    const arrow = document.querySelector<HTMLElement>('.arrowicon')!;
-    if(expanded){
-      setExpanded(false);
-      arrow.style.transform = 'rotate(0deg)';
-    }else{
-      setExpanded(true);
-      arrow.style.transform = 'rotate(180deg)';
-    }
-  }
+  // const rotateArrow = () => {
+  //   const arrow = document.querySelector<HTMLElement>('.arrowicon')!;
+  //   if(expanded){
+  //     setExpanded(false);
+  //     arrow.style.transform = 'rotate(0deg)';
+  //   }else{
+  //     setExpanded(true);
+  //     arrow.style.transform = 'rotate(180deg)';
+  //   }
+  // }
 
   return (
       <Listbox value={selected} onChange={handleChange}>
-        <DropdownContainer onClick={() => rotateArrow()}>
+        <DropdownContainer >
           <Listbox.Button className={"appearance-none flex items-center justify-end block w-full h-full pr-10 2xl:px-6 relative py-2 rounded-md placeholder-white focus:outline-none text-md 2xl:text-2xl"}>
             <span className="block truncate text-left">{selected ? selected : <div className='text-black'>FILTERS</div>}</span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2 2xl:pr-4">

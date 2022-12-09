@@ -51,8 +51,6 @@ const BlurBackground = styled.div`
     width: 100%;
     height: 100%;
     position: fixed;
-    backdrop-filter: blur(5px);
-    background-color: rgba(0, 0, 0, 0.15);
     z-index: 101;
     top: 0;
     left: 0;

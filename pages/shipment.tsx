@@ -71,7 +71,7 @@ const ShipmentContent = styled.div`
 `
 
 const TitleContainer = styled.div`
-    padding: 1rem 1.5rem 1rem 1.5rem;
+    padding: 1rem 1.5rem 1rem 1rem;
 `
 
 const FormInputs = styled.div`

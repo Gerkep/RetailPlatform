@@ -10,8 +10,14 @@ import Link from "next/link";
 import LoadingPage from "../../../components/common/LoadingPage";
 import Navbar from "../../../components/common/Navbar";
 import Centered from "../../../components/common/Centered";
+import { useState } from "react";
 
 const Product = () => {
+
+    const [isOwner, setIsOwner] = useState(false);
+    const [listed, setListed] = useState(true);
+    const [drop, setDrop] = useState(false);
+
     return (
         <PageContainer>
             <Navbar showProfile={true} admin={true}  showHome={true} showUpcoming={true}/>
@@ -24,10 +30,41 @@ const Product = () => {
                 Lorem ipsum dolor sit amet, consectetur adipisc elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
             </Description>
-            <Props owner="gerke.eth" invoice="With VAT invoice" condition="New"/>
-            <Link href="/shipment">
-                <ActionButton text="ORDER NOW" icon={bagIcon}/>
-            </Link>
+            {isOwner ?
+                listed ?
+                    <Props owner="gerke.eth" invoice="" condition=""/>
+                :
+                    <Props owner="gerke.eth" invoice="" condition=""/>
+                :
+                listed ?
+                    <Props owner="gerke.eth" invoice="With VAT invoice" condition="New"/>
+                :
+                    drop ?
+                    <Props owner="gerke.eth" invoice="With VAT invoice" condition=""/>
+                    :
+                    <Props owner="gerke.eth" invoice="" condition=""/>
+                    
+            }
+            {isOwner ?
+                listed ?
+                    <ActionButton text="DELIST" />
+                :
+                    <Link href="/sell/1">
+                            <ActionButton text="LIST ITEM"/>
+                    </Link>
+                :
+                listed ?
+                    <Link href="/shipment">
+                            <ActionButton text="ORDER NOW" icon={bagIcon}/>
+                    </Link>
+                :
+                    drop ?
+                    <Link href="/shipment">
+                            <ActionButton text="ORDER NOW" icon={bagIcon}/>
+                    </Link>
+                    :
+                    <></>
+            }
         </PageContainer>
     )
 }

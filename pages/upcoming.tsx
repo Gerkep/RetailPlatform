@@ -5,7 +5,17 @@ import lvshoe from "../public/img/lvshoe.png";
 import lvbag from "../public/img/lvbag.png";
 import Navbar from "../components/common/Navbar";
 
+
 const Upcoming = () => {
+
+    const renderUpcoming = () => {
+        return (
+            <Feed>
+                
+            </Feed>
+        )
+    }
+
     return (
         <div>
             <Navbar showProfile={true} admin={true} showHome={true} showUpcoming={false}/>
@@ -23,7 +33,7 @@ const Upcoming = () => {
 export default Upcoming;
 
 const TitleContainer = styled.div`
-    padding: 0.5rem 1.5rem 1rem 1.5rem;
+    padding: 0.5rem 1.5rem 1rem 1rem;
 `
 
 const Feed = styled.div`

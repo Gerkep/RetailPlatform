@@ -14,7 +14,9 @@ const Navbar = (props: {showProfile: boolean, admin: boolean, showHome: boolean,
     return (
         <NavbarContainer>
             <Link href="/">
-                <Image alt="logo" style={{width: "auto", height: "2rem"}} src={logo}></Image>
+                <Logo>
+                    <Image alt="logo" style={{width: "auto", height: "2rem"}} src={logo}></Image>
+                </Logo>
             </Link>
             <Navigation>
                 {admin &&
@@ -51,6 +53,10 @@ const NavbarContainer = styled.div`
     padding: 1rem;
     display: flex;
     justify-content: space-between;
+    @media (min-width: 768px) {
+        background-color: black;
+        padding: 1.5rem;
+    }
 `
 
 const Navigation = styled.div`
@@ -60,4 +66,13 @@ const Navigation = styled.div`
 
 const NavIcon = styled.div`
     margin-left: 1.5rem;
+    @media (min-width: 768px) {
+        filter: invert(1);
+        margin-left: 2.5rem;
+    }
+`
+const Logo = styled.div`
+    @media (min-width: 768px) {
+        filter: invert(1);
+    }
 `

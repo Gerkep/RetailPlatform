@@ -7,7 +7,7 @@ const ProductPreview = ({image, price}: any) => {
         <Link href="/item/1">
         <PreviewContainer>
             <PreviewImage>
-                <Image alt="product img" style={{width: "100%", height: "auto"}} src={image}></Image>
+                <Image alt="product img" style={{width: "auto", maxHeight: "100%"}}  src={image}></Image>
             </PreviewImage>
             <ProductPrice>{price}</ProductPrice>
         </PreviewContainer>
@@ -17,32 +17,46 @@ const ProductPreview = ({image, price}: any) => {
 
 export default ProductPreview;
 
-const PreviewContainer = styled.div`
-    width: 45vw;
-    height: 45vw;
-    padding: 1rem;
-    margin 0.5vw 0.5vw 0.5vw 0.5vw;
-    background-color: #F1F1F1;
-    border-radius: 15px;
-    position: relative;
-    cursor: pointer;
-`
 const PreviewImage = styled.div`
-    width: 95%;
+    width: 35vw;
     height: 85%;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto;
+    transition: 0.2s ease-in-out;
+    @media (min-width: 768px) {
+        width: 15rem;
+        height: 15rem;
+    }
+`
+const PreviewContainer = styled.div`
+    width: 45vw;
+    height: 45vw;
+    padding: 1rem;
+    margin 0.5vw 0.5vw 0.5vw 0.5vw;
+    padding: 1rem;
+    background-color: #F1F1F1;
+    border-radius: 15px;
+    position: relative;
+    cursor: pointer;
+    &:hover ${PreviewImage} {
+       transform: scale(1.05);
+    }
+    @media (min-width: 768px) {
+        width: 20rem;
+        height: 20rem;
+    }
 `
 
 const ProductPrice = styled.div`
     font-size: 1em;
+    text-align: right;
     margin: 0 auto;
-    margin-top: 1vw;
+    margin-top: 1.5svw;
     width: 95%;
-    font-weight: 700;
+    font-weight: 400;
     white-space: nowrap;
     overflow: hidden;
 `

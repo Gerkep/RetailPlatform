@@ -5,6 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Props = (props: {owner: string, invoice: string, condition: string}) => {
+
+    const {owner, invoice, condition} = props;
+
     return (
         <ProductProps>
             <Prop>
@@ -18,14 +21,18 @@ const Props = (props: {owner: string, invoice: string, condition: string}) => {
                         </Link>
                     </PropValue>
             </Prop>
-            <Prop>
-                <Label>Invoice</Label>
-                <PropValue>{props.invoice}</PropValue>
-            </Prop>
-            <Prop>
-                <Label>Condition</Label>
-                <PropValue>{props.condition}</PropValue>
-            </Prop>
+            {invoice &&
+                <Prop>
+                    <Label>Invoice</Label>
+                    <PropValue>{props.invoice}</PropValue>
+                </Prop>           
+            }
+            {condition &&
+                <Prop>
+                    <Label>Condition</Label>
+                    <PropValue>{props.condition}</PropValue>
+                </Prop>
+            }
         </ProductProps>
     )
 }
