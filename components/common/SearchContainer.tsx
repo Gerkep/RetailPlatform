@@ -74,7 +74,6 @@ const Input = styled.input`
 const SearchButton = styled.button`
     display: flex;
     align-items: end;
-    background-color: #F5F5F5;
     color: black;
 
 `

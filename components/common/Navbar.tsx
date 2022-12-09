@@ -4,34 +4,44 @@ import logo from "../../public/img/lvlogo.png";
 import profileIcon from "../../public/img/icons/profileIcon.png"
 import shareIcon from "../../public/img/icons/shareIcon.png"
 import plusIcon from "../../public/img/icons/plusIcon.png";
+import marketplaceIcon from "../../public/img/icons/marketplaceIcon.png";
 import Link from "next/link";
 
-const Navbar = (props: {showShare: boolean, showProfile: boolean, admin: boolean}) => {
+const Navbar = (props: {showShare: boolean, showProfile: boolean, admin: boolean, home: boolean}) => {
+    const {showShare, showProfile, admin, home} = props;
+
     return (
         <NavbarContainer>
             <Link href="/">
                 <Image alt="logo" style={{width: "auto", height: "2rem"}} src={logo}></Image>
             </Link>
             <Navigation>
-                {props.admin && 
+                {admin && 
                     <Link href="/add-drop">
                         <NavIcon>
                             <Image alt="logo" style={{width: "auto", height: "1.7rem"}} src={plusIcon}></Image>
                         </NavIcon>
                     </Link>
                 }   
-                {props.showShare && 
+                {showShare && 
                     <NavIcon>
                         <Image alt="logo" style={{width: "auto", height: "1.7rem"}} src={shareIcon}></Image>
                     </NavIcon>
                 }
-                {props.showProfile && 
+                {showProfile && 
                     <Link href="/profile/gerke.eth">
                         <NavIcon>
                             <Image alt="logo" style={{width: "auto", height: "1.7rem"}} src={profileIcon}></Image>
                         </NavIcon>
                     </Link>
                 }
+                {!home && 
+                    <Link href="/add-drop">
+                        <NavIcon>
+                            <Image alt="logo" style={{width: "auto", height: "1.7rem"}} src={marketplaceIcon}></Image>
+                        </NavIcon>
+                    </Link>
+                }   
             </Navigation>
         </NavbarContainer>
     )
@@ -52,5 +62,5 @@ const Navigation = styled.div`
 `
 
 const NavIcon = styled.div`
-    margin-left: 1.2rem;
+    margin-left: 1.5rem;
 `

@@ -8,7 +8,7 @@ import Link from "next/link";
 import ActionButton from "../components/common/ActionButton";
 import bagIcon from "../public/img/icons/bagIcon.png";
 import LoadingPage from "../components/common/LoadingPage";
-import Navbar from "../components/common/Navbar";
+import lvshoe from "../public/img/lvshoe.png";
 
 const ShipmentInfo = () => {
     return (
@@ -55,7 +55,7 @@ const ShipmentInfo = () => {
                     </PropValue>
             </Prop>
             <PreviewContainer>
-                <LongPreview />
+                <LongPreview date={undefined} image={lvshoe} productName="Match-Up Sneaker" id="1"/>
             </PreviewContainer>
             <Link href="/thank-you">
                 <ActionButton text="BUY NOW" icon={bagIcon}/>

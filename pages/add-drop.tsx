@@ -11,7 +11,7 @@ import { useState } from "react";
 import calendarIcon from "../public/img/icons/calendarIcon.png";
 import { FileUploader } from 'react-drag-drop-files';
 import { HiOutlinePhotograph } from "react-icons/hi";
-const fileTypes = ["JPG", "PNG"];
+const fileTypes = ["JPG", "PNG", "HEIC"];
 import Image from "next/image";
 
 const Product = () => {
@@ -40,7 +40,7 @@ const Product = () => {
       }
     return (
         <PageContainer>
-            <Navbar showShare={false} showProfile={true} admin={false}/>
+            <Navbar showShare={false} showProfile={true} admin={false}  home={false}/>
             <LoadingPage />
             <Centered>
             <FileUploader hoverTitle="Drop here" handleChange={handleChange} name="file" types={fileTypes} multiple={true} label="Drop an image" >
@@ -93,7 +93,7 @@ const Product = () => {
                 <Label>Description</Label>
                 <TextArea placeholder="Your item description"></TextArea>
             </Layout>
-            <div onClick={() => router.replace("/drops")}>
+            <div onClick={() => router.replace("/upcoming")}>
                 <ActionButton text="SCHEDULE DROP" icon={calendarIcon}/>
             </div>
         </PageContainer>

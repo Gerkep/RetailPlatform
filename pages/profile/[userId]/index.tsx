@@ -13,7 +13,7 @@ const Profile = () => {
     return (
         <>
         <ProfileContainer>
-            <Navbar showShare={true} showProfile={false} admin={true}/>
+            <Navbar showShare={true} showProfile={false} admin={true}  home={false}/>
             <LoadingPage />
             <ProfileHeader>
                 <Username>gerke.eth</Username>
