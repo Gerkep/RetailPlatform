@@ -13,8 +13,8 @@ const Upcoming = () => {
                 <PageTitle>Upcoming</PageTitle>
             </TitleContainer>
             <Feed>
-                <LongPreview date={new Date(new Date().getTime() - (24 * 60 * 60 * 1000))} image={lvbag} productName="LV Premium Bag" id="1"/>
-                <LongPreview date={new Date(new Date().getTime() + (24 * 60 * 60 * 1000))} image={lvshoe} productName="Match-Up Sneaker" id="1"/>
+                <LongPreview date={new Date(new Date().getTime() - (24 * 60 * 60 * 1000))} image={lvshoe} productName="Match-Up Sneaker" id="1"/>
+                <LongPreview date={new Date(new Date().getTime() + (24 * 60 * 60 * 1000))} image={lvbag} productName="LV Premium Bag" id="1"/>
             </Feed>
         </div>
     )
