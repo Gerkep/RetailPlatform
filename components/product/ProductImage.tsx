@@ -22,8 +22,9 @@ const ImageContainer = styled.div`
     border-radius: 10px;
     @media (min-width: 768px) {
         width: 100%;
-        height: 100vh;
+        height: 100%;
         border-radius: 0px;
+        background-color: transparent;
     }
 `
 

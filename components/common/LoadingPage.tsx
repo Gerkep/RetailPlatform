@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+import Navbar from "./Navbar";
 
 export default function Loading() {
     const router = useRouter();
@@ -26,6 +27,9 @@ export default function Loading() {
     <div>
         {loading &&
             <LoadingContainer>
+                <NavbarContainer>
+                <Navbar showProfile={true} admin={false}  showHome={true} showUpcoming={true}/>
+                </NavbarContainer>
                 <BlurBackground>
                     <Spinner></Spinner>
                 </BlurBackground>
@@ -35,13 +39,19 @@ export default function Loading() {
     );
 }
 
+const NavbarContainer = styled.div`
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+`
 const LoadingContainer = styled.div`
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     position: fixed;
-    z-index: 101;
+    z-index: 102;
     background-color: white;
     display: flex;
     align-items: center;

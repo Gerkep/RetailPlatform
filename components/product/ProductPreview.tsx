@@ -5,12 +5,20 @@ import Link from "next/link";
 const ProductPreview = ({image, price}: any) => {
     return (
         <Link href="/item/1">
-        <PreviewContainer>
-            <PreviewImage>
-                <Image alt="product img" style={{width: "auto", maxHeight: "100%"}}  src={image}></Image>
-            </PreviewImage>
-            <ProductPrice>{price}</ProductPrice>
-        </PreviewContainer>
+        {price ?
+            <PreviewContainer>
+                <PreviewImage>
+                    <Image alt="product img" style={{width: "auto", maxHeight: "100%"}}  src={image}></Image>
+                </PreviewImage>
+                <ProductPrice>{price}</ProductPrice>
+            </PreviewContainer>
+            :
+            <PreviewCenter>
+                <PreviewImage>
+                    <Image alt="product img" style={{width: "auto", maxHeight: "100%"}}  src={image}></Image>
+                </PreviewImage>
+            </PreviewCenter>
+        } 
         </Link>
     )
 }
@@ -41,6 +49,27 @@ const PreviewContainer = styled.div`
     border-radius: 15px;
     position: relative;
     cursor: pointer;
+    &:hover ${PreviewImage} {
+       transform: scale(1.05);
+    }
+    @media (min-width: 768px) {
+        width: 20rem;
+        height: 20rem;
+    }
+`
+
+const PreviewCenter = styled.div`
+    width: 45vw;
+    height: 45vw;
+    padding: 1rem;
+    margin 0.5vw 0.5vw 0.5vw 0.5vw;
+    padding: 1rem;
+    background-color: #F1F1F1;
+    border-radius: 15px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
     &:hover ${PreviewImage} {
        transform: scale(1.05);
     }
