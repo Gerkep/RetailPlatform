@@ -20,23 +20,23 @@ const Navbar = (props: {showProfile: boolean, admin: boolean, showHome: boolean,
                 {admin &&
                     <Link href="/add-drop">
                         <NavIcon>
-                            <Image alt="logo" style={{width: "auto", height: "1.7rem"}} src={plusIcon}></Image>
+                            <Image alt="logo" style={{width: "auto", height: "1.5rem"}} src={plusIcon}></Image>
                         </NavIcon>
                     </Link>
                 }
                 <Link href="/profile/gerke.eth">
                     <NavIcon>
-                        <Image alt="logo" style={{width: "auto", height: "1.7rem"}} src={profileIcon}></Image>
+                        <Image alt="logo" style={{width: "auto", height: "1.5rem"}} src={profileIcon}></Image>
                     </NavIcon>
                 </Link>
                 <Link href="/upcoming">
                     <NavIcon>
-                        <Image alt="logo" style={{width: "auto", height: "1.7rem"}} src={calendarIcon}></Image>
+                        <Image alt="logo" style={{width: "auto", height: "1.5rem"}} src={calendarIcon}></Image>
                     </NavIcon>
                 </Link>
                 <Link href="/">
                     <NavIcon>
-                        <Image alt="logo" style={{width: "auto", height: "1.7rem"}} src={marketplaceIcon}></Image>
+                        <Image alt="logo" style={{width: "auto", height: "1.5rem"}} src={marketplaceIcon}></Image>
                     </NavIcon>
                 </Link>
             </Navigation>
