@@ -61,12 +61,12 @@ export default LongPreview;
 
 const PreviewContainer = styled.div`
     width: 100%;
-    padding: 1.5rem 1.5rem 2rem 1.5rem;
-    margin 1.5rem 0rem 1.5rem 0rem;
+    padding: 1rem 1rem 1.2rem 1rem;
+    margin 0.5rem 0rem 0.5rem 0rem;
     background-color: #F1F1F1;
     border-radius: 15px;
     display: grid; 
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 1.2fr 0.8fr; 
     grid-template-rows: 1fr; 
     gap: 0px 0px; 
     grid-template-areas: 
