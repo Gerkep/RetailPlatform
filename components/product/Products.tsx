@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import ProductPreview from "./ProductPreview";
-import shoe from "../../public/img/lvshoe.png";
+import shoe from "../../public/img/shoe.png";
 import bag from "../../public/img/lvbag.png";
 import jacket from "../../public/img/lvjacket.png";
 import pants from "../../public/img/lvpants.png";

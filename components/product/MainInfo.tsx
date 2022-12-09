@@ -2,11 +2,14 @@ import styled from "styled-components";
 import Image from "next/image";
 
 const MainInfo = (props: any) => {
+
     return (
         <MainProductInfo>
             <ProductName><h1>{props.name}</h1></ProductName>
             <ProductBrand>{props.brand}</ProductBrand>
-            <ProductPrice>{props.children}</ProductPrice>
+            {props.mobile && 
+                <ProductPrice>{props.children}</ProductPrice>
+            }
         </MainProductInfo>
     )
 }
@@ -23,6 +26,9 @@ const MainProductInfo = styled.div`
     grid-template-areas: 
     "product-name product-price"
     "product-brand product-price";
+    @media (min-width: 768px) {
+        display: block;
+    }
 `
 
 const ProductName = styled.div`
@@ -31,6 +37,9 @@ const ProductName = styled.div`
     font-weight: 700;
     overflow: hidden;
     grid-area: product-name;
+    @media (min-width: 768px) {
+       font-size: 2em;
+    }
 `
 
 const ProductBrand = styled.div`
@@ -40,6 +49,9 @@ const ProductBrand = styled.div`
     white-space: nowrap;
     overflow: hidden;
     grid-area: product-brand;
+    @media (min-width: 768px) {
+        margin-top: 0.2rem;
+    }
 `
 
 const ProductPrice = styled.div`

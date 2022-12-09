@@ -1,4 +1,4 @@
-import shoe from "../../../public/img/lvshoe.png";
+import shoe from "../../../public/img/shoe.png";
 import styled from "styled-components";
 import ActionButton from "../../../components/common/ActionButton";
 import ProductImage from "../../../components/product/ProductImage";

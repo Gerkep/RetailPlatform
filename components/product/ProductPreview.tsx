@@ -59,4 +59,7 @@ const ProductPrice = styled.div`
     font-weight: 400;
     white-space: nowrap;
     overflow: hidden;
+    @media (min-width: 768px) {
+        font-weight: 500;
+    }
 `

@@ -3,7 +3,7 @@ import bag from "../public/img/icons/bagIcon.png";
 import Image from "next/image";
 import styled from "styled-components";
 import ProductPreview from "../components/product/ProductPreview";
-import shoe from "../public/img/lvshoe.png";
+import shoe from "../public/img/shoe.png";
 import ActionButton from "../components/common/ActionButton";
 import Link from "next/link";
 import LoadingPage from "../components/common/LoadingPage";

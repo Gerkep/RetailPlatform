@@ -39,6 +39,6 @@ const ModalContainer = styled.div`
     padding: 2rem 1.5rem 2rem 1.5rem;
     overflow: scroll;
     @media only screen and (min-width: 768px) {
-        width: 45vw;
+        width: auto;
     }
 `
