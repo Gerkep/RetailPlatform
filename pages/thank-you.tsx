@@ -7,28 +7,75 @@ import shoe from "../public/img/shoe.png";
 import ActionButton from "../components/common/ActionButton";
 import Link from "next/link";
 import LoadingPage from "../components/common/LoadingPage";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import ModalTemplate from "../components/modal/common/ModalTemplate";
+import Navbar from "../components/common/Navbar";
+import FilterContainer from "../components/common/FilterContainer";
+import Products from "../components/product/Products";
+import SuccessPreview from "../components/product/SuccessPreview";
+
 
 const Success = () => {
+
+    const [mobile, setMobile] = useState(true);
+    const router = useRouter();
+    
+    useEffect(() => {
+        if(window.innerWidth >= 768){
+          setMobile(false);
+        }
+      }, [])
+      
     return (
         <SuccessContainer>
             <LoadingPage />
-            <Image alt="search" style={{width: "5rem", height: "5rem", margin: "0 auto"}} src={tick}></Image>
-            <SuccessTitle>Success!</SuccessTitle>
-            <SuccessDescription>Air Match-Up Sneakers are on their way to your doorstep</SuccessDescription>
-            <PreviewContainer>
-                <ProductPreview image={shoe} price=""/>
-            </PreviewContainer>
-            <Link href="/">
-                <ContinueButton>
-                    <Image alt="buy icon" style={{width: "1.2rem", height: "1.2rem", marginRight: "1rem"}} src={bag}></Image>
-                    CONTINUE SHOPPING
-                </ContinueButton>
-            </Link>
-            <Link href="/profile/gerke.eth">
-                <ProfileButton>
-                    VIEW PROFILE
-                </ProfileButton>
-            </Link>
+            {mobile ?
+            <div>
+                <Image alt="search" style={{width: "5rem", height: "5rem", margin: "0 auto"}} src={tick}></Image>
+                <SuccessTitle>Success!</SuccessTitle>
+                <SuccessDescription>Dior Sneakers are on their way to your doorstep</SuccessDescription>
+                <PreviewContainer>
+                    <SuccessPreview image={shoe}/>
+                </PreviewContainer>
+                <Link href="/">
+                    <ContinueButton>
+                        <Image alt="buy icon" style={{width: "1.2rem", height: "1.2rem", marginRight: "1rem"}} src={bag}></Image>
+                        CONTINUE SHOPPING
+                    </ContinueButton>
+                </Link>
+                <Link href="/profile/gerke.eth">
+                    <ProfileButton>
+                        VIEW PROFILE
+                    </ProfileButton>
+                </Link>
+            </div>
+            :
+            <div>
+                <Navbar showProfile={true} admin={false}  showHome={true} showUpcoming={true}/>
+                <FilterContainer filters={[]} filter={''} setFilter={''} title={"Market"}/>
+                <Products />
+                <ModalTemplate width="32rem" onClose={() => router.push("/")}>
+                    <Image alt="search" style={{width: "5rem", height: "5rem", margin: "0 auto"}} src={tick}></Image>
+                    <SuccessTitle>Success!</SuccessTitle>
+                    <SuccessDescription>Dior Sneakers are on their way to your doorstep</SuccessDescription>
+                    <PreviewContainer>
+                        <SuccessPreview image={shoe}/>
+                    </PreviewContainer>
+                    <Link href="/">
+                        <ContinueButton>
+                            <Image alt="buy icon" style={{width: "1.2rem", height: "1.2rem", marginRight: "1rem"}} src={bag}></Image>
+                            CONTINUE SHOPPING
+                        </ContinueButton>
+                    </Link>
+                    <Link href="/profile/gerke.eth">
+                        <ProfileButton>
+                            VIEW PROFILE
+                        </ProfileButton>
+                    </Link>
+                </ModalTemplate>
+            </div>
+            }
         </SuccessContainer>
     )
 }
@@ -37,6 +84,9 @@ export default Success;
 
 const SuccessContainer = styled.div`
     padding-top: 2.5rem;
+    @media (min-width: 768px) {
+        padding: 0;
+    }
 `
 
 const SuccessTitle = styled.h1`

@@ -9,57 +9,134 @@ import ActionButton from "../components/common/ActionButton";
 import bagIcon from "../public/img/icons/bagIcon.png";
 import LoadingPage from "../components/common/LoadingPage";
 import shoe from "../public/img/shoe.png";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import ModalTemplate from "../components/modal/common/ModalTemplate";
+import Centered from "../components/common/Centered";
+import Navbar from "../components/common/Navbar";
+import FilterContainer from "../components/common/FilterContainer";
+import Products from "../components/product/Products";
 
 const ShipmentInfo = () => {
+
+    const [mobile, setMobile] = useState(true);
+    const router = useRouter();
+    
+    useEffect(() => {
+        if(window.innerWidth >= 768){
+          setMobile(false);
+        }
+      }, [])
+      
     return (
         <ShipmentContent>
             <LoadingPage />
-            <TitleContainer>
-                <PageTitle>Delivery details</PageTitle>
-            </TitleContainer>
-            <FormInputs>
-                <InputContainer>
-                    <Label>First name</Label>
-                    <Input placeholder="Piotr"></Input>
-                </InputContainer>
-                <InputContainer>
-                    <Label>Last name</Label>
-                    <Input placeholder="Gerke"></Input>
-                </InputContainer>
-                <InputContainer>
-                    <Label>Address</Label>
-                    <Input placeholder="Słoneczna 5"></Input>
-                </InputContainer>
-                <InputContainer>
-                    <Label>City</Label>
-                    <Input placeholder="Lusowo"></Input>
-                </InputContainer>
-                <InputContainer>
-                    <Label>Postal code</Label>
-                    <Input placeholder="62-080"></Input>
-                </InputContainer>
-                <InputContainer>
-                    <Label>Tel. number</Label>
-                    <Input type="tel" placeholder="721 783 342"></Input>
-                </InputContainer>
-            </FormInputs>
-            <Prop>
-                <Label>Seller</Label>
-                    <PropValue>
-                        <Link href="/profile/gerke.eth">
-                            gerke.eth
-                        </Link>
-                        <Link href="/profile/gerke.eth">
-                            <Image alt="search" style={{width: "0.7rem", height: "0.7rem", marginLeft: "0.5rem"}} src={searchIcon}></Image>
-                        </Link>
-                    </PropValue>
-            </Prop>
-            <PreviewContainer>
-                <LongPreview date={undefined} image={shoe} productName="Match-Up Sneaker" id="1"/>
-            </PreviewContainer>
-            <Link href="/thank-you">
-                <ActionButton text="BUY NOW" icon={bagIcon}/>
-            </Link>
+            {mobile ?
+            <div>
+                <TitleContainer>
+                    <PageTitle>Delivery details</PageTitle>
+                </TitleContainer>
+                <FormInputs>
+                    <InputContainer>
+                        <Label>First name</Label>
+                        <Input placeholder="Piotr"></Input>
+                    </InputContainer>
+                    <InputContainer>
+                        <Label>Last name</Label>
+                        <Input placeholder="Gerke"></Input>
+                    </InputContainer>
+                    <InputContainer>
+                        <Label>Address</Label>
+                        <Input placeholder="Słoneczna 5"></Input>
+                    </InputContainer>
+                    <InputContainer>
+                        <Label>City</Label>
+                        <Input placeholder="Lusowo"></Input>
+                    </InputContainer>
+                    <InputContainer>
+                        <Label>Postal code</Label>
+                        <Input placeholder="62-080"></Input>
+                    </InputContainer>
+                    <InputContainer>
+                        <Label>Tel. number</Label>
+                        <Input type="tel" placeholder="721 783 342"></Input>
+                    </InputContainer>
+                </FormInputs>
+                <Prop>
+                    <Label>Seller</Label>
+                        <PropValue>
+                            <Link href="/profile/gerke.eth">
+                                gerke.eth
+                            </Link>
+                            <Link href="/profile/gerke.eth">
+                                <Image alt="search" style={{width: "0.7rem", height: "0.7rem", marginLeft: "0.5rem"}} src={searchIcon}></Image>
+                            </Link>
+                        </PropValue>
+                </Prop>
+                <PreviewContainer>
+                    <LongPreview date={undefined} image={shoe} productName="Match-Up Sneaker" id="1"/>
+                </PreviewContainer>
+                <Link href="/thank-you">
+                    <ActionButton text="BUY NOW" icon={bagIcon}/>
+                </Link>        
+            </div>
+            :
+            <div>
+            <Navbar showProfile={true} admin={false}  showHome={true} showUpcoming={true}/>
+            <FilterContainer filters={[]} filter={''} setFilter={''} title={"Market"}/>
+            <Products />
+            <ModalTemplate width="32rem" onClose={() => router.push("/")}>
+                <Centered>
+                    <PageTitle>Delivery details</PageTitle>
+                </Centered>
+                <FormInputs>
+                    <InputContainer>
+                        <Label>First name</Label>
+                        <Input placeholder="Piotr"></Input>
+                    </InputContainer>
+                    <InputContainer>
+                        <Label>Last name</Label>
+                        <Input placeholder="Gerke"></Input>
+                    </InputContainer>
+                    <InputContainer>
+                        <Label>Address</Label>
+                        <Input placeholder="Słoneczna 5"></Input>
+                    </InputContainer>
+                    <InputContainer>
+                        <Label>City</Label>
+                        <Input placeholder="Lusowo"></Input>
+                    </InputContainer>
+                    <InputContainer>
+                        <Label>Postal code</Label>
+                        <Input placeholder="62-080"></Input>
+                    </InputContainer>
+                    <InputContainer>
+                        <Label>Tel. number</Label>
+                        <Input type="tel" placeholder="721 783 342"></Input>
+                    </InputContainer>
+                </FormInputs>
+                <Prop>
+                    <Label>Seller</Label>
+                        <PropValue>
+                            <Link href="/profile/gerke.eth">
+                                gerke.eth
+                            </Link>
+                            <Link href="/profile/gerke.eth">
+                                <Image alt="search" style={{width: "0.7rem", height: "0.7rem", marginLeft: "0.5rem"}} src={searchIcon}></Image>
+                            </Link>
+                        </PropValue>
+                </Prop>
+                <PreviewContainer>
+                    <LongPreview date={undefined} image={shoe} productName="Match-Up Sneaker" id="1"/>
+                </PreviewContainer>
+                <Link href="/thank-you">
+                    <Centered>
+                        <ActionButton text="BUY NOW" icon={bagIcon}/>
+                    </Centered>
+                </Link>        
+            </ModalTemplate>
+            </div>
+            }
         </ShipmentContent>
     )
 }
@@ -68,6 +145,9 @@ export default ShipmentInfo;
 
 const ShipmentContent = styled.div`
     padding-bottom: 5rem;
+    @media (min-width: 768px) {
+        padding: 0;
+    }
 `
 
 const TitleContainer = styled.div`
@@ -78,10 +158,17 @@ const FormInputs = styled.div`
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    @media (min-width: 768px) {
+        margin-top: 1rem;
+    }
 `
 
 const InputContainer = styled.div`
     margin: 0rem 0rem 1rem 1.5rem;
+    @media (min-width: 768px) {
+        margin: 0rem 0.5rem 1rem 0.5rem;
+    }
 `
 
 const Input = styled.input`
@@ -94,6 +181,10 @@ const Input = styled.input`
     border-radius: 10px;
     padding-left: 0.5rem;
     font-size: 1em;
+    @media (min-width: 768px) {
+        width: 13rem;
+        height: 2.4rem;
+    }
 `
 const Prop = styled.div`
     margin: 1rem 2.5rem 1rem 1.5rem;

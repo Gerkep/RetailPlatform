@@ -24,7 +24,7 @@ const Product = () => {
         <LoadingPage />
         {!mobile ?
             <div>
-            <ModalTemplate onClose={() => router.back()}>
+            <ModalTemplate width="90%" onClose={() => router.back()}>
                 <ProductPage listed={true} isOwner={false} drop={false} mobile={mobile}/>
             </ModalTemplate>
             <FilterContainer filters={[]} filter={''} setFilter={''} title={"Market"}/>

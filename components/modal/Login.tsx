@@ -6,7 +6,7 @@ import ModalTitle from "./common/ModalTitle";
 
 const Login = ({onSubmit}: any) => {
     return (
-        <ModalTemplate>
+        <ModalTemplate width="90vw" onClose={() => console.log("")}>
             <ModalTitle>Sign in</ModalTitle>
             <Centered>
             <InputContainer>
