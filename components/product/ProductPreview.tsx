@@ -25,11 +25,11 @@ const PreviewImage = styled.div`
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    border-radius: 15px;
+    border-radius: 10px;
     transition: 0.2s ease-in-out;
     @media (min-width: 768px) {
-        width: 15rem;
-        height: 15rem;
+        width: 14.5rem;
+        height: 14.5rem;
     }
 `
 const PreviewContainer = styled.div`
@@ -39,7 +39,7 @@ const PreviewContainer = styled.div`
     margin 0.5vw 0.5vw 0.5vw 0.5vw;
     padding: 1rem;
     background-color: #F1F1F1;
-    border-radius: 15px;
+    border-radius: 10px;
     position: relative;
     cursor: pointer;
     &:hover ${PreviewImage} {

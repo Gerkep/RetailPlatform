@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import BigPreview from "../../../components/product/BigPreview";
 import shoe from "../../../public/img/shoe.png";
@@ -6,10 +6,17 @@ import bag from "../../../public/img/lvbag.png";
 import Link from "next/link";
 import LoadingPage from "../../../components/common/LoadingPage";
 import Navbar from "../../../components/common/Navbar";
-
 const Profile = () => {
 
     const [option, setOption] = useState("all");
+    const [mobile, setMobile] = useState(true);
+    
+    useEffect(() => {
+        if(window.innerWidth >= 768){
+          setMobile(false);
+        }
+      }, [])
+
     return (
         <>
         <ProfileContainer>
@@ -17,8 +24,23 @@ const Profile = () => {
             <LoadingPage />
             <ProfileHeader>
                 <Username>gerke.eth</Username>
+                {!mobile ?
+                    option === "all" ? 
+                    <ProfileNavbar>
+                        <NavButtonSelected onClick={() => setOption("all")}>ALL ITEMS</NavButtonSelected>
+                        <NavButton onClick={() => setOption("listed")}>LISTED</NavButton>
+                    </ProfileNavbar>
+                    :
+                    <ProfileNavbar>
+                        <NavButton onClick={() => setOption("all")}>ALL ITEMS</NavButton>
+                        <NavButtonSelected onClick={() => setOption("listed")}>LISTED</NavButtonSelected>
+                    </ProfileNavbar>      
+                    :
+                    <></>       
+                }
             </ProfileHeader>
-            {option === "all" ? 
+            {mobile  ?
+            option === "all" ? 
             <ProfileNavbar>
                 <NavButtonSelected onClick={() => setOption("all")}>ALL ITEMS</NavButtonSelected>
                 <NavButton onClick={() => setOption("listed")}>LISTED</NavButton>
@@ -28,6 +50,8 @@ const Profile = () => {
                 <NavButton onClick={() => setOption("all")}>ALL ITEMS</NavButton>
                 <NavButtonSelected onClick={() => setOption("listed")}>LISTED</NavButtonSelected>
             </ProfileNavbar>
+            :
+            <></>
             }
             {option === "all" ? 
              <OwnedProducts>
@@ -55,13 +79,21 @@ const  ProfileHeader = styled.div`
     padding: 0rem 1.5rem 1.5rem 1.5rem;
     width: 100%;
     border-bottom: 1px #C7C7C7 solid;
+    @media (min-width: 768px) {
+        padding: 1.5rem;
+        display: flex;
+        align-items: center;
+    }
 `
 
 const Username = styled.div`
     text-align: center;
     font-size: 1.2em;
     font-weight: 700;
-
+    @media (min-width: 768px) {
+        text-align: left;
+        font-size: 2em;
+    }
 `
 
 const  ProfileNavbar = styled.div`
@@ -73,6 +105,11 @@ const  ProfileNavbar = styled.div`
     margin-top: 1rem;
     top: 0rem;
     background-color: white;
+    @media (min-width: 768px) {
+        padding: 0;
+        margin-top: 0rem;
+        justify-content: flex-end;
+    }
 `
 
 const NavButton = styled.button`
@@ -91,6 +128,9 @@ const OwnedProducts = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    @media (min-width: 768px) {
+        margin-top: 2rem;
+    }
 `
 
 const NoProductsInfo = styled.p`

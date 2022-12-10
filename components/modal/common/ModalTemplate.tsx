@@ -20,7 +20,7 @@ const ModalTemplate = ({onClose, children, width}: any) => {
         width: 100%;
         height: 100%;
         position: fixed;
-        backdrop-filter: blur(5px);
+        backdrop-filter: blur(15px);
         background-color: rgba(0, 0, 0, 0.5);
         z-index: 101;
         top: 0;

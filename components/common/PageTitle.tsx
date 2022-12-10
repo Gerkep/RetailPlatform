@@ -15,7 +15,8 @@ const Title = styled.div`
     line-height: 12vw;
     font-weight: bold;
     @media (min-width: 768px) {
-        font-size: 2.4em;
+        font-size: 2em;
         line-height: 2.4em;
+        font-weight: 600;
     }
 `

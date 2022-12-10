@@ -28,7 +28,7 @@ export default function Loading() {
         {loading &&
             <LoadingContainer>
                 <NavbarContainer>
-                <Navbar showProfile={true} admin={false}  showHome={true} showUpcoming={true}/>
+                <Navbar showProfile={true} admin={true}  showHome={true} showUpcoming={true}/>
                 </NavbarContainer>
                 <BlurBackground>
                     <Spinner></Spinner>

@@ -3,7 +3,6 @@ import Label from "../components/common/Label";
 import PageTitle from "../components/common/PageTitle";
 import searchIcon from "../public/img/icons/searchIcon.png";
 import Image from "next/image";
-import LongPreview from "../components/product/LongPreview";
 import Link from "next/link";
 import ActionButton from "../components/common/ActionButton";
 import bagIcon from "../public/img/icons/bagIcon.png";
@@ -16,6 +15,8 @@ import Centered from "../components/common/Centered";
 import Navbar from "../components/common/Navbar";
 import FilterContainer from "../components/common/FilterContainer";
 import Products from "../components/product/Products";
+import UpcomingPreview from "../components/product/UpcomingPreview";
+import SummaryPreview from "../components/product/SummaryPreview";
 
 const ShipmentInfo = () => {
 
@@ -74,7 +75,7 @@ const ShipmentInfo = () => {
                         </PropValue>
                 </Prop>
                 <PreviewContainer>
-                    <LongPreview date={undefined} image={shoe} productName="Match-Up Sneaker" id="1"/>
+                    <SummaryPreview image={shoe} productName="Match-Up Sneaker" id="1"/>
                 </PreviewContainer>
                 <Link href="/thank-you">
                     <ActionButton text="BUY NOW" icon={bagIcon}/>
@@ -127,7 +128,7 @@ const ShipmentInfo = () => {
                         </PropValue>
                 </Prop>
                 <PreviewContainer>
-                    <LongPreview date={undefined} image={shoe} productName="Match-Up Sneaker" id="1"/>
+                    <SummaryPreview image={shoe} productName="Match-Up Sneaker" id="1"/>
                 </PreviewContainer>
                 <Link href="/thank-you">
                     <Centered>

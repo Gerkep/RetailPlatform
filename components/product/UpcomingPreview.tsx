@@ -6,7 +6,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 
-const LongPreview = (props: {date: Date | undefined, image: any, productName: string, id: string}) => {
+const UpcomingPreview = (props: {date: Date | undefined, image: any, productName: string, id: string}) => {
+
     const {date, image, productName, id} = props;
 
     const [started, setStarted] = useState(false);
@@ -23,9 +24,6 @@ const LongPreview = (props: {date: Date | undefined, image: any, productName: st
         <PreviewContainer>
             <PreviewInfo>
                 <ProductName>{productName}</ProductName>
-                {!date &&
-                    <ProductBrand>Louis Vuitton</ProductBrand>
-                }
                 {date &&
                 <div>
                     {started ?
@@ -50,27 +48,33 @@ const LongPreview = (props: {date: Date | undefined, image: any, productName: st
                 <ProductPrice>$325</ProductPrice>
                 }
             </PreviewInfo>
+            <div style={{display: "flex", justifyContent: "flex-end"}}>
             <PreviewImage>
                 <Image alt="product img" style={{width: "90%", height: "auto"}} src={image}></Image>
             </PreviewImage>
+            </div>
         </PreviewContainer>
     )
 }
 
-export default LongPreview;
+export default UpcomingPreview;
 
 const PreviewContainer = styled.div`
-    width: 100%;
-    padding: 1rem 1rem 1.2rem 1rem;
-    margin 0.5rem 0rem 0.5rem 0rem;
-    background-color: #F1F1F1;
-    border-radius: 15px;
-    display: grid; 
-    grid-template-columns: 1.2fr 0.8fr; 
-    grid-template-rows: 1fr; 
-    gap: 0px 0px; 
-    grid-template-areas: 
-      "preview-info preview-image"; 
+width: 100%;
+padding: 1rem 1rem 1.2rem 1rem;
+margin 0.5rem 0rem 0.5rem 0rem;
+background-color: #F1F1F1;
+border-radius: 15px;
+display: grid; 
+grid-template-columns: 1.2fr 0.8fr; 
+grid-template-rows: 1fr; 
+gap: 0px 0px; 
+grid-template-areas: 
+"preview-info preview-image"; 
+@media (min-width: 768px) {
+    padding: 1.5rem 1rem 1.5rem 1.5rem;
+    border-radius: 10px;
+}
 `
 
 const PreviewInfo = styled.div`
@@ -85,16 +89,19 @@ const PreviewImage = styled.div`
     justify-content: flex-end;
     width: 100%;
     border-radius: 10px;
+    @media (min-width: 768px) {
+        justify-content: center;
+        height: 12rem;
+        width: 12rem;
+    }
 `
 
 const ProductName = styled.h2`
     font-weight: 900;
     font-size: 1em;
-`
-
-const ProductBrand = styled.p`
-    font-weight: 700;
-    font-size: 0.7em;
+    @media (min-width: 768px) {
+        font-size: 1.5em;
+    }
 `
 
 const DateContainer = styled.p`
@@ -104,6 +111,10 @@ const DateContainer = styled.p`
     display: flex;
     align-items: center;
     width: 95%;
+    @media (min-width: 768px) {
+        font-size: 0.8em;
+        margin-top: 0.5rem;
+    }
 `
 
 const SmallLabel = styled.p`
@@ -112,12 +123,20 @@ const SmallLabel = styled.p`
     margin-top: 0.5rem;
     margin-bottom: 0.2rem;
     color: #777777;
+    @media (min-width: 768px) {
+        margin-top: 1.2rem;
+        margin-bottom: 0.4rem;
+    }
 `
 
 const ProductPrice = styled.p`
     font-weight: 900;
     font-size: 1.8em;
     margin-top: 1.5rem;
+    @media (min-width: 768px) {
+        font-size: 1.2em;
+        font-weight: 500;
+    }
 `
 
 const GreenStatus = styled.div`
@@ -141,6 +160,11 @@ const BuyButton = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
+    @media (min-width: 768px) {
+        margin-top: 2.5rem;
+        width: 12rem;
+        height: 2.4rem;
+    }
 `
 
 const NotifyButton = styled.button`
@@ -156,6 +180,11 @@ const NotifyButton = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
+    @media (min-width: 768px) {
+        margin-top: 2.5rem;
+        width: 12rem;
+        height: 2.4rem;
+    }
 `
 
 const Time = styled.div`

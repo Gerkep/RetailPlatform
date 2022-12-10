@@ -7,21 +7,30 @@ import Label from "../components/common/Label";
 import { useRouter } from "next/router";
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import calendarIcon from "../public/img/icons/calendarIcon.png";
 import { FileUploader } from 'react-drag-drop-files';
 import { HiOutlinePhotograph } from "react-icons/hi";
 const fileTypes = ["JPG", "PNG", "HEIC"];
 import Image from "next/image";
+import PageTitle from "../components/common/PageTitle";
 
 const Product = () => {
 
     const [showCallendar, setShowCallendar] = useState(false);
     const [date, setDate] = useState(new Date());
     const [imageList, setImageList] = useState<any[]>([]);
+    const [mobile, setMobile] = useState(true);
 
     const router = useRouter();
 
+
+    useEffect(() => {
+        if(window.innerWidth >= 768){
+          setMobile(false);
+        }
+    }, [])
+      
       const handleChange = (image: any) => {
         setImageList([...imageList, image]);
       };
@@ -39,9 +48,10 @@ const Product = () => {
           )
       }
     return (
+        <MainContainer>
+        <Navbar showProfile={true} admin={false}  showHome={true} showUpcoming={true}/>
+        <LoadingPage />
         <PageContainer>
-            <Navbar showProfile={true} admin={false}  showHome={true} showUpcoming={true}/>
-            <LoadingPage />
             <Centered>
             <FileUploader hoverTitle="Drop here" handleChange={handleChange} name="file" types={fileTypes} multiple={true} label="Drop an image" >
                     {imageList[0] ? 
@@ -65,7 +75,7 @@ const Product = () => {
                     <InputContainer>
                         <Label>Date</Label>
                         <DatePicker
-                            className="appearance-none border border-[#C0C0C0] bg-[#F5F5F5] flex items-center justify-end block w-full h-10 mt-2 pl-2  2xl:px-6 relative py-2 rounded-xl placeholder-white focus:outline-none text-md 2xl:text-2xl"
+                            className="appearance-none border border-[#C0C0C0] bg-[#F5F5F5] flex items-center justify-end block w-full lg:w-72 h-10 mt-2 pl-2  2xl:px-6 relative py-2 rounded-xl placeholder-white focus:outline-none text-md 2xl:text-2xl"
                             selected={date}
                             onChange={(date) => setDate(date!)}
                             showTimeSelect
@@ -97,6 +107,7 @@ const Product = () => {
                 <ActionButton text="SCHEDULE DROP" icon={calendarIcon}/>
             </div>
         </PageContainer>
+        </MainContainer>
     )
 }
 
@@ -105,9 +116,32 @@ export default Product;
 const Layout = styled.div`
     width: 95vw;
     margin: 0 auto;
+    @media (min-width: 768px) {
+        width: 18rem;
+        margin: 0 0 0 0;
+    }
+`
+const MainContainer = styled.div`
+    @media (min-width: 768px) {
+        height: 100vh;
+        position: absolute;
+        width: 100%;
+        overflow: hidden;
+    }
 `
 const PageContainer = styled.div`
     padding-bottom: 7rem;
+    @media (min-width: 768px) {
+        display: grid; 
+        grid-template-columns: 1fr 1fr; 
+        grid-template-rows: 1fr; 
+        gap: 0px 0px; 
+        grid-template-areas: 
+          ". .";
+        padding-bottom: 0rem;
+        height: 100vh;
+        align-items: center;
+    }
 `
 
 const DropboxContainer = styled.div`
@@ -121,6 +155,11 @@ const DropboxContainer = styled.div`
     justify-content: center;
     flex-wrap: wrap;
     margin-bottom: 1.5rem;
+    @media (min-width: 768px) {
+        width: 35rem;
+        height: 35rem;
+        border: 3px dashed #DBDBDB;
+    }
 `
 
 const Row = styled.div`
@@ -146,6 +185,9 @@ const ShortInput = styled.input`
     outline: none;
     border-radius: 10px;
     padding-left: 0.5rem;
+    @media (min-width: 768px) {
+        width: 12rem;
+    }
 `
 
 const Input = styled.input`
@@ -158,6 +200,9 @@ const Input = styled.input`
     border-radius: 10px;
     padding-left: 0.5rem;
     font-size: 1em;
+    @media (min-width: 768px) {
+        width: 18rem;
+    }
 `
 
 const TextArea = styled.textarea`
@@ -170,4 +215,7 @@ const TextArea = styled.textarea`
     border-radius: 10px;
     padding: 0.4rem 0.5rem 0.3rem 0.5rem;
     font-size: 1em;
+    @media (min-width: 768px) {
+        width: 31rem;
+    }
 `

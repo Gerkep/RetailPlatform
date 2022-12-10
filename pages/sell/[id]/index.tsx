@@ -8,8 +8,11 @@ import Navbar from "../../../components/common/Navbar";
 import Centered from "../../../components/common/Centered";
 import Label from "../../../components/common/Label";
 import InputDropdown from "../../../components/common/InputDropdown";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import ModalTemplate from "../../../components/modal/common/ModalTemplate";
+import FilterContainer from "../../../components/common/FilterContainer";
+import Products from "../../../components/product/Products";
 
 const conditions = ["New", "Used"]
 const invoices = ["No invoice", "VAT invoice"]
@@ -18,33 +21,75 @@ const Product = () => {
 
     const [condition, setCondition] = useState("New");
     const [invoice, setInvoice] = useState("No invoice");
+    const [mobile, setMobile] = useState(true);
     const router = useRouter();
+    
+    useEffect(() => {
+        if(window.innerWidth >= 768){
+          setMobile(false);
+        }
+      }, []);
 
     return (
         <PageContainer>
             <Navbar showProfile={true} admin={true}  showHome={true} showUpcoming={true}/>
             <LoadingPage />
-            <Centered>
-                <ProductImage image={shoe}/>
-            </Centered>
-            <MainInfo name="Match-Up Sneaker" brand="Louis Vuitton"><div style={{fontSize: "1.2em"}}>$<PriceInput placeholder="123" /></div></MainInfo>
-            <InputContainer>
-                    <Label>Description</Label>
-                    <TextArea placeholder="Your item description"></TextArea>
-            </InputContainer>
-            <div style={{display: "flex"}}>
-            <InputContainer>
-                    <Label>Condition</Label>
-                    <InputDropdown values={conditions} value={condition} onChange={setCondition} error={undefined} id="1"/>
-            </InputContainer>
-            <InputContainer>
-                    <Label>Invoice</Label>
-                    <InputDropdown values={invoices} value={invoice} onChange={setInvoice} error={undefined} id="2"/>
-            </InputContainer>
+            {mobile ? 
+            <div>
+                <Centered>
+                    <ProductImage image={shoe}/>
+                </Centered>
+                <MainInfo name="Match-Up Sneaker" brand="Louis Vuitton"><div style={{fontSize: "1.2em"}}>$<PriceInput placeholder="123" /></div></MainInfo>
+                <InputContainer>
+                        <Label>Description</Label>
+                        <TextArea placeholder="Your item description"></TextArea>
+                </InputContainer>
+                <div style={{display: "flex"}}>
+                <InputContainer>
+                        <Label>Condition</Label>
+                        <InputDropdown values={conditions} value={condition} onChange={setCondition} error={undefined} id="1"/>
+                </InputContainer>
+                <InputContainer>
+                        <Label>Invoice</Label>
+                        <InputDropdown values={invoices} value={invoice} onChange={setInvoice} error={undefined} id="2"/>
+                </InputContainer>
+                </div>
+                <div onClick={() => router.replace("/item/1")}>
+                    <ActionButton text="LIST FOR SALE" icon=""/>
+                </div>
+            </div>        
+            :
+            <div>
+                <Navbar showProfile={true} admin={false}  showHome={true} showUpcoming={true}/>
+                <FilterContainer filters={[]} filter={''} setFilter={''} title={"Market"}/>
+                <ModalTemplate width="32rem" onClose={() => router.push("/profile/gerke.eth")}>
+                    <Centered>
+                        <ProductImage image={shoe}/>
+                    </Centered>
+                    <MainInfo name="Match-Up Sneaker" brand="Louis Vuitton"><div style={{fontSize: "1.2em"}}>$<PriceInput placeholder="123" /></div></MainInfo>
+                    <InputContainer>
+                            <Label>Description</Label>
+                            <TextArea placeholder="Your item description"></TextArea>
+                    </InputContainer>
+                    <div style={{display: "flex", width: "100%", justifyContent: "center"}}>
+                    <InputContainer>
+                            <Label>Condition</Label>
+                            <InputDropdown values={conditions} value={condition} onChange={setCondition} error={undefined} id="1"/>
+                    </InputContainer>
+                    <InputContainer>
+                            <Label>Invoice</Label>
+                            <InputDropdown values={invoices} value={invoice} onChange={setInvoice} error={undefined} id="2"/>
+                    </InputContainer>
+                    </div>
+                    <div style={{marginTop: "1rem"}} onClick={() => router.replace("/item/1")}>
+                        <Centered>
+                        <ActionButton text="LIST FOR SALE" icon=""/>
+                        </Centered>
+                    </div>
+                </ModalTemplate>    
             </div>
-            <div onClick={() => router.replace("/item/1")}>
-                <ActionButton text="LIST FOR SALE" icon=""/>
-            </div>
+            }
+
         </PageContainer>
     )
 }

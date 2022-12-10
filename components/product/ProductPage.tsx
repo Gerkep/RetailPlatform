@@ -18,7 +18,6 @@ const ProductPage = (props: {listed: boolean, isOwner: boolean, drop: boolean, m
 
     return (
         <PageContainer>
-            {!mobile &&
             <div>
             <BackArrow onClick={() => router.back()}><IoIosArrowBack></IoIosArrowBack><div style={{marginLeft: "0.7rem"}}>Back</div></BackArrow>
                 <PreviewContainer>
@@ -35,7 +34,7 @@ const ProductPage = (props: {listed: boolean, isOwner: boolean, drop: boolean, m
                     </div>
                 </PreviewContainer>
             </div>
-            }
+
             <Centered>
                 <ProductImage image={shoe}/>
             </Centered>
