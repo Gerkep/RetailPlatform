@@ -88,6 +88,7 @@ const NavIcon = styled.div`
     @media (min-width: 768px) {
         filter: invert(1);
         margin-left: 2.5rem;
+        cursor: pointer;
     }
 `
 const Logo = styled.div`

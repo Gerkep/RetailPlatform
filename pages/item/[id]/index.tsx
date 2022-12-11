@@ -19,8 +19,8 @@ import SellModal from "../../../components/modal/desktop/SellModal";
 
  const Product = () => {
 
-     const [isOwner, setIsOwner] = useState(true);
-     const [listed, setListed] = useState(false);
+     const [isOwner, setIsOwner] = useState(false);
+     const [listed, setListed] = useState(true);
      const [drop, setDrop] = useState(false);
      const [mobile, setMobile] = useState(true);
      const [openShipment, setOpenShipment] = useState(false);
@@ -47,7 +47,11 @@ import SellModal from "../../../components/modal/desktop/SellModal";
              </Centered>
              <ProductInfoContainer>
                  <div>
-                     <MainInfo name="Match-Up Sneaker" brand="Louis Vuitton" mobile={mobile}><Price>$234</Price></MainInfo>
+                     {listed ? 
+                        <MainInfo name="Match-Up Sneaker" brand="Louis Vuitton" mobile={mobile}><Price>$234</Price></MainInfo>
+                        :
+                        <MainInfo name="Match-Up Sneaker" brand="Louis Vuitton" mobile={mobile}></MainInfo>
+                     }
                      <Description>
                          Lorem ipsum dolor sit amet, consectetur adipisc elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
@@ -66,9 +70,6 @@ import SellModal from "../../../components/modal/desktop/SellModal";
                              :
                              <Props owner="gerke.eth" invoice="" condition=""/>
 
-                     }
-                     {(!mobile && listed) && 
-                         <ProductPrice>$323</ProductPrice>
                      }
                      <ButtonContainer>
                      {isOwner ?
