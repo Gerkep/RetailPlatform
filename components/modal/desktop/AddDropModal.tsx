@@ -19,7 +19,6 @@ const DropModal = ({onClose, mobile}: any) => {
 
     const [showCallendar, setShowCallendar] = useState(false);
     const [date, setDate] = useState(new Date());
-    const [imageList, setImageList] = useState<any[]>([]);
     const[image, setImage] = useState(null);
     const[previewUrl, setPreviewUrl] = useState(""); 
     const router = useRouter();

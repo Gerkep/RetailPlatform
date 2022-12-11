@@ -12,8 +12,6 @@ import calendarIcon from "../public/img/icons/calendarIcon.png";
 import { FileUploader } from 'react-drag-drop-files';
 import { HiOutlinePhotograph } from "react-icons/hi";
 const fileTypes = ["JPG", "PNG", "HEIC"];
-import Image from "next/image";
-import PageTitle from "../components/common/PageTitle";
 
 const Product = () => {
 
@@ -21,6 +19,8 @@ const Product = () => {
     const [date, setDate] = useState(new Date());
     const [imageList, setImageList] = useState<any[]>([]);
     const [mobile, setMobile] = useState(true);
+    const[previewUrl, setPreviewUrl] = useState(""); 
+    const[image, setImage] = useState(null);
 
     const router = useRouter();
 
@@ -31,22 +31,11 @@ const Product = () => {
         }
     }, [])
       
-      const handleChange = (image: any) => {
-        setImageList([...imageList, image]);
+    const handleFile = (image: any) => {
+        setImage(image);
+        setPreviewUrl(URL.createObjectURL(image));
       };
-  
-      const renderUploadedImages = () => {
-          const uploadedImages = imageList.map((image) => {
-              return (
-                <div key={image} className="w-full text-center text-gray-500">{image[0].name}</div>
-              )
-          })
-          return (
-              <div>
-                  {uploadedImages}
-              </div>
-          )
-      }
+      
     return (
         <MainContainer>
         <Navbar showProfile={true} admin={true}  showHome={true} showUpcoming={true}/>
@@ -54,12 +43,14 @@ const Product = () => {
         {mobile ?
         <PageContainer>
             <Centered>
-            <FileUploader hoverTitle="Drop here" handleChange={handleChange} name="file" types={fileTypes} multiple={true} label="Drop an image" >
-                    {imageList[0] ? 
+            <FileUploader hoverTitle="Drop here" handleChange={handleFile} name="file" types={fileTypes} multiple={false} label="Drop an image" >
+                {(previewUrl && image) ?
                     <DropboxContainer>
                         <div className="w-full text-center text-gray-500">Uploaded:</div>                        
-                        {renderUploadedImages()}
-                        <div className="w-full text-center text-gray-500 mt-4">Drop/click to add more</div>
+                          <div style={{display: "flex", justifyContent: "center", width: "11rem", height: "11rem"}} className="image">
+                            <img style={{width: "100%", height: "auto", objectFit: "contain"}} src={previewUrl} alt='image' /> 
+                            </div> 
+                        <div className="w-full text-center text-gray-500">Click to add more</div>
                     </DropboxContainer>  
                     :
                     <DropboxContainer>
