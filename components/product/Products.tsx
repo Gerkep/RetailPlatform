@@ -6,7 +6,9 @@ import jacket from "../../public/img/lvjacket.png";
 import pants from "../../public/img/lvpants.png";
 import Product from "../../pages/add-drop";
 
-const items = [{name: "Match-Up Sneaker", price: "$270", image: shoe}, {name: "LV Premium Bag", price: "$320", image: bag}, {name: "DOUBLE-BREASTED PONT NEUF JACKET", price: "$277", image: jacket}, {name: "KARAKORAM DENIM PANTS", price: "$177", image: pants}]
+const items = [{name: "Match-Up Sneaker", price: "$270", image: shoe}, {name: "LV Premium Bag", price: "$320", image: bag}, {name: "DOUBLE-BREASTED PONT NEUF JACKET", price: "$277", image: jacket}, {name: "KARAKORAM DENIM PANTS", price: "$177", image: pants},
+{name: "Match-Up Sneaker", price: "$270", image: shoe}, {name: "LV Premium Bag", price: "$320", image: bag}, {name: "DOUBLE-BREASTED PONT NEUF JACKET", price: "$277", image: jacket}, {name: "KARAKORAM DENIM PANTS", price: "$177", image: pants},
+{name: "Match-Up Sneaker", price: "$270", image: shoe}, {name: "LV Premium Bag", price: "$320", image: bag}, {name: "DOUBLE-BREASTED PONT NEUF JACKET", price: "$277", image: jacket}, {name: "KARAKORAM DENIM PANTS", price: "$177", image: pants}]
 
 const Products = () => {
 
@@ -38,4 +40,5 @@ const Container = styled.div`
     padding: 0.5rem 0.5rem 0 0.5rem;
     flex-wrap: wrap;
     justify-content: center;
+    padding-bottom: 4rem;
 `

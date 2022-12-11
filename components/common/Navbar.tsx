@@ -36,27 +36,31 @@ const Navbar = (props: {showProfile: boolean, admin: boolean, showHome: boolean,
                     mobile ?
                     <Link href="/add-drop">
                         <NavIcon>
-                            <Image alt="logo" style={{width: "auto", height: "1.5rem"}} src={plusIcon}></Image>
+                            <Image alt="logo" style={{width: "auto", height: "100%"}} src={plusIcon}></Image>
                         </NavIcon>
                     </Link>
                     :
                     <NavIcon onClick={() => setOpenNewDropModal(true)}>
-                        <Image alt="logo" style={{width: "auto", height: "1.5rem"}} src={plusIcon}></Image>
+                        <Image alt="logo" style={{width: "auto", height: "100%"}} src={plusIcon}></Image>
+                        <IconText>Add new</IconText>
                     </NavIcon>
                 }
                 <Link href="/profile/gerke.eth">
                     <NavIcon>
-                        <Image alt="logo" style={{width: "auto", height: "1.5rem"}} src={profileIcon}></Image>
+                        <Image alt="logo" style={{width: "auto", height: "100%"}} src={profileIcon}></Image>
+                        <IconText>Profile</IconText>
                     </NavIcon>
                 </Link>
                 <Link href="/upcoming">
                     <NavIcon>
-                        <Image alt="logo" style={{width: "auto", height: "1.5rem"}} src={calendarIcon}></Image>
+                        <Image alt="logo" style={{width: "auto", height: "100%"}} src={calendarIcon}></Image>
+                        <IconText>Upcoming</IconText>
                     </NavIcon>
                 </Link>
                 <Link href="/">
                     <NavIcon>
-                        <Image alt="logo" style={{width: "auto", height: "1.5rem"}} src={marketplaceIcon}></Image>
+                        <Image alt="logo" style={{width: "auto", height: "100%"}} src={marketplaceIcon}></Image>
+                        <IconText>Home</IconText>
                     </NavIcon>
                 </Link>
             </Navigation>
@@ -66,6 +70,7 @@ const Navbar = (props: {showProfile: boolean, admin: boolean, showHome: boolean,
 }
 
 export default Navbar;
+
 
 const NavbarContainer = styled.div`
     width: 100%;
@@ -85,14 +90,27 @@ const Navigation = styled.div`
 
 const NavIcon = styled.div`
     margin-left: 1.5rem;
+    height: 1.5rem;
     @media (min-width: 768px) {
         filter: invert(1);
         margin-left: 2.5rem;
         cursor: pointer;
+        display: flex;
+        height: 1.2rem;
+        margin-left: 3rem;
     }
 `
 const Logo = styled.div`
     @media (min-width: 768px) {
         filter: invert(1);
+    }
+`
+
+const IconText = styled.div`
+    display: none;
+    @media (min-width: 768px) {
+        display: inline;
+        white-space: nowrap;
+        margin-left: 0.7rem;
     }
 `
