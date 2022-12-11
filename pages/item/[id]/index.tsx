@@ -19,8 +19,8 @@ import SellModal from "../../../components/modal/desktop/SellModal";
 
  const Product = () => {
 
-     const [isOwner, setIsOwner] = useState(true);
-     const [listed, setListed] = useState(false);
+     const [isOwner, setIsOwner] = useState(false);
+     const [listed, setListed] = useState(true);
      const [drop, setDrop] = useState(false);
      const [mobile, setMobile] = useState(true);
      const [openShipment, setOpenShipment] = useState(false);
@@ -38,7 +38,7 @@ import SellModal from "../../../components/modal/desktop/SellModal";
         {openShipment && <ShipmentModal onClose={() => setOpenShipment(false)}/>}
         {openSell && <SellModal onClose={() => setOpenSell(false)}/>}
         <YeppBadge />    
-        <BackArrow onClick={() => router.back()}><IoIosArrowBack></IoIosArrowBack><div style={{marginLeft: "0.7rem"}}>Back</div></BackArrow>
+        {!mobile && <BackArrow onClick={() => router.back()}><IoIosArrowBack></IoIosArrowBack><div style={{marginLeft: "0.7rem"}}>Back</div></BackArrow>}
          <Navbar showProfile={true} admin={true}  showHome={true} showUpcoming={true}/>
          <LoadingPage />
          <PageContent>
