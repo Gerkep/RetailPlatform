@@ -49,7 +49,7 @@ const Product = () => {
       }
     return (
         <MainContainer>
-        <Navbar showProfile={true} admin={false}  showHome={true} showUpcoming={true}/>
+        <Navbar showProfile={true} admin={true}  showHome={true} showUpcoming={true}/>
         <LoadingPage />
         <PageContainer>
             <Centered>

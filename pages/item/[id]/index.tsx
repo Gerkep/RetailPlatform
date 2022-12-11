@@ -19,8 +19,8 @@ import SellModal from "../../../components/modal/desktop/SellModal";
 
  const Product = () => {
 
-     const [isOwner, setIsOwner] = useState(false);
-     const [listed, setListed] = useState(true);
+     const [isOwner, setIsOwner] = useState(true);
+     const [listed, setListed] = useState(false);
      const [drop, setDrop] = useState(false);
      const [mobile, setMobile] = useState(true);
      const [openShipment, setOpenShipment] = useState(false);
