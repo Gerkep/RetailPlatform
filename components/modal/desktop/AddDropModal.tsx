@@ -1,7 +1,5 @@
 import styled from "styled-components";
 import ActionButton from "../../../components/common/ActionButton";
-import LoadingPage from "../../../components/common/LoadingPage";
-import Navbar from "../../../components/common/Navbar";
 import Centered from "../../../components/common/Centered";
 import Label from "../../../components/common/Label";
 import { useRouter } from "next/router";
@@ -22,37 +20,29 @@ const DropModal = ({onClose, mobile}: any) => {
     const [showCallendar, setShowCallendar] = useState(false);
     const [date, setDate] = useState(new Date());
     const [imageList, setImageList] = useState<any[]>([]);
-
+    const[image, setImage] = useState(null);
+    const[previewUrl, setPreviewUrl] = useState(""); 
     const router = useRouter();
 
       
-      const handleChange = (image: any) => {
-        setImageList([...imageList, image]);
+      const handleFile = (image: any) => {
+        setImage(image);
+        setPreviewUrl(URL.createObjectURL(image));
       };
   
-      const renderUploadedImages = () => {
-          const uploadedImages = imageList.map((image) => {
-              return (
-                <div key={image} className="w-full text-center text-gray-500">{image[0].name}</div>
-              )
-          })
-          return (
-              <div>
-                  {uploadedImages}
-              </div>
-          )
-      }
     return (
         <>
         <ModalTemplate width="65rem" onClose={() => onClose()}>
         <CloseModal onClick={() => onClose()}><IoIosClose></IoIosClose></CloseModal>
         <PageContainer>
             <Centered>
-            <FileUploader hoverTitle="Drop here" handleChange={handleChange} name="file" types={fileTypes} multiple={true} label="Drop an image" >
-                    {imageList[0] ? 
+            <FileUploader hoverTitle="Drop here" handleChange={handleFile} name="file" types={fileTypes} multiple={false} label="Drop an image" >
+                { (previewUrl && image) ?
                     <DropboxContainer>
-                        <div className="w-full text-center text-gray-500">Uploaded:</div>                        
-                        {renderUploadedImages()}
+                        <div className="w-full text-center text-gray-500 mb-2">Uploaded:</div>                        
+                          <div style={{display: "flex", justifyContent: "center", width: "15rem", height: "15rem"}} className="image">
+                            <img style={{width: "100%", height: "auto", objectFit: "contain"}} src={previewUrl} alt='image' /> 
+                            </div> 
                         <div className="w-full text-center text-gray-500 mt-4">Drop/click to add more</div>
                     </DropboxContainer>  
                     :
@@ -61,6 +51,7 @@ const DropModal = ({onClose, mobile}: any) => {
                         <HiOutlinePhotograph className="w-24 h-24 text-gray-300"/>
                       </div>
                       <div className="w-full text-center text-gray-500">Drop an image</div>
+                      <div className="w-full text-center text-gray-400">Square size at least 1080 X 1080</div>
                     </DropboxContainer>            
                     }
             </FileUploader>

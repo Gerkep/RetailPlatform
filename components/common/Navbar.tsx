@@ -8,7 +8,11 @@ import marketplaceIcon from "../../public/img/icons/marketplaceIcon.png";
 import calendarIcon from "../../public/img/icons/calendarBlackIcon.png";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import AddDropModal from "../modal/desktop/AddDropModal";
+import dynamic from 'next/dynamic';
+
+const AddDropModal = dynamic(() => import('../modal/desktop/AddDropModal'), {
+  ssr: false,
+});
 
 const Navbar = (props: {showProfile: boolean, admin: boolean, showHome: boolean, showUpcoming: boolean}) => {
     const {showProfile, admin, showHome, showUpcoming} = props;
