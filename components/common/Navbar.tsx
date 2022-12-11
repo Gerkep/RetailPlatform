@@ -98,6 +98,7 @@ const NavIcon = styled.div`
         display: flex;
         height: 1.2rem;
         margin-left: 3rem;
+        align-items: center;
     }
 `
 const Logo = styled.div`

@@ -10,7 +10,7 @@ const ModalTemplate = ({onClose, children, width}: any) => {
         overflow: hidden;
         border-radius: 10px;
         padding: 2rem 1.5rem 2.5rem 1.5rem;
-        overflow: scroll;
+        overflow: hidden;
         @media only screen and (min-width: 768px) {
             width: ${width};
         }

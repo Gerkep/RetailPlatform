@@ -18,7 +18,7 @@ const ShipmentModal = ({onClose}: any) => {
     const router = useRouter();
 
     return (
-        <ModalTemplate width="32rem" onClose={() => onClose()}>
+        <ModalTemplate width="34rem" onClose={() => onClose()}>
             <CloseModal onClick={() => onClose()}><IoIosClose></IoIosClose></CloseModal>
             <Centered>
                 <PageTitle>Delivery details</PageTitle>

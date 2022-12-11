@@ -60,21 +60,22 @@ const UpcomingPreview = (props: {date: Date | undefined, image: any, productName
 export default UpcomingPreview;
 
 const PreviewContainer = styled.div`
-width: 100%;
-padding: 1rem 1rem 1.2rem 1rem;
-margin 0.5rem 0rem 0.5rem 0rem;
-background-color: #F1F1F1;
-border-radius: 15px;
-display: grid; 
-grid-template-columns: 1.2fr 0.8fr; 
-grid-template-rows: 1fr; 
-gap: 0px 0px; 
-grid-template-areas: 
-"preview-info preview-image"; 
-@media (min-width: 768px) {
-    padding: 1.5rem 1rem 1.5rem 1.5rem;
-    border-radius: 10px;
-}
+    width: 100%;
+    padding: 1rem 1rem 1.2rem 1rem;
+    margin 0.5rem 0rem 0.5rem 0rem;
+    background-color: #F1F1F1;
+    border-radius: 15px;
+    display: grid; 
+    grid-template-columns: 1.2fr 0.8fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    "preview-info preview-image"; 
+    @media (min-width: 768px) {
+        padding: 1.5rem 1rem 1.5rem 1.5rem;
+        border-radius: 10px;
+        margin 0rem 0rem 0rem 0rem;
+    }
 `
 
 const PreviewInfo = styled.div`

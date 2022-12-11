@@ -38,7 +38,7 @@ export default Upcoming;
 
 const PreviewContainer = styled.div`
     @media (min-width: 768px) {
-        width: 40rem;
+        width: 42rem;
         margin: 1rem;
     }
 `
@@ -52,8 +52,10 @@ const Feed = styled.div`
     width: 95%;
     margin-top: 1rem;
     @media (min-width: 768px) {
+        width: 98%;
         display: flex;
         flex-wrap: wrap;
         margin-top: 0rem;
+        justify-content: center;
     }
 `

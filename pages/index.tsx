@@ -20,7 +20,7 @@ const Marketplace = () => {
   return (
     <div>
       <Navbar showProfile={true} admin={true}  showHome={false} showUpcoming={true}/>
-      {mobile && <LoadingPage />}
+      <LoadingPage />
       <FilterContainer filters={filters} filter={filter} setFilter={setFilter} title={"Market"}/>
       <Products />
     </div>
