@@ -82,61 +82,12 @@ const ShipmentInfo = () => {
                 </Link>        
             </div>
             :
-            <div>
-            <Navbar showProfile={true} admin={false}  showHome={true} showUpcoming={true}/>
-            <FilterContainer filters={[]} filter={''} setFilter={''} title={"Market"}/>
-            <Products />
-            <ModalTemplate width="32rem" onClose={() => router.push("/")}>
-                <Centered>
-                    <PageTitle>Delivery details</PageTitle>
-                </Centered>
-                <FormInputs>
-                    <InputContainer>
-                        <Label>First name</Label>
-                        <Input placeholder="Piotr"></Input>
-                    </InputContainer>
-                    <InputContainer>
-                        <Label>Last name</Label>
-                        <Input placeholder="Gerke"></Input>
-                    </InputContainer>
-                    <InputContainer>
-                        <Label>Address</Label>
-                        <Input placeholder="Słoneczna 5"></Input>
-                    </InputContainer>
-                    <InputContainer>
-                        <Label>City</Label>
-                        <Input placeholder="Lusowo"></Input>
-                    </InputContainer>
-                    <InputContainer>
-                        <Label>Postal code</Label>
-                        <Input placeholder="62-080"></Input>
-                    </InputContainer>
-                    <InputContainer>
-                        <Label>Tel. number</Label>
-                        <Input type="tel" placeholder="721 783 342"></Input>
-                    </InputContainer>
-                </FormInputs>
-                <Prop>
-                    <Label>Seller</Label>
-                        <PropValue>
-                            <Link href="/profile/gerke.eth">
-                                gerke.eth
-                            </Link>
-                            <Link href="/profile/gerke.eth">
-                                <Image alt="search" style={{width: "0.7rem", height: "0.7rem", marginLeft: "0.5rem"}} src={searchIcon}></Image>
-                            </Link>
-                        </PropValue>
-                </Prop>
-                <PreviewContainer>
-                    <SummaryPreview image={shoe} productName="Match-Up Sneaker" id="1"/>
-                </PreviewContainer>
-                <Link href="/thank-you">
-                    <Centered>
-                        <ActionButton text="BUY NOW" icon={bagIcon}/>
-                    </Centered>
-                </Link>        
-            </ModalTemplate>
-            </div>
+             <>
+             <Navbar showProfile={true} admin={true}  showHome={false} showUpcoming={true}/>
+             <div style={{width: "100%", display: "flex", justifyContent: "center", marginTop: "40vh"}}>
+                Page not found
+             </div>   
+             </>
             }
         </ShipmentContent>
     )

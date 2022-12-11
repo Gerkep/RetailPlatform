@@ -51,6 +51,7 @@ const Product = () => {
         <MainContainer>
         <Navbar showProfile={true} admin={true}  showHome={true} showUpcoming={true}/>
         <LoadingPage />
+        {mobile ?
         <PageContainer>
             <Centered>
             <FileUploader hoverTitle="Drop here" handleChange={handleChange} name="file" types={fileTypes} multiple={true} label="Drop an image" >
@@ -105,8 +106,13 @@ const Product = () => {
             </Layout>
             <div onClick={() => router.replace("/upcoming")}>
                 <ActionButton text="SCHEDULE DROP" icon={calendarIcon}/>
-            </div>
+            </div>     
         </PageContainer>
+        :
+        <div style={{width: "100%", display: "flex", justifyContent: "center", marginTop: "40vh"}}>
+            Page not found
+        </div>   
+        }           
         </MainContainer>
     )
 }
