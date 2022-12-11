@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 import calendarIcon from "../public/img/icons/calendarIcon.png";
 import { FileUploader } from 'react-drag-drop-files';
 import { HiOutlinePhotograph } from "react-icons/hi";
-const fileTypes = ["JPG", "PNG", "HEIC"];
+const fileTypes = ["JPG", "PNG", "HEIC", "JPEG"];
 
 const Product = () => {
 
@@ -46,11 +46,11 @@ const Product = () => {
             <FileUploader hoverTitle="Drop here" handleChange={handleFile} name="file" types={fileTypes} multiple={false} label="Drop an image" >
                 {(previewUrl && image) ?
                     <DropboxContainer>
-                        <div className="w-full text-center text-gray-500">Uploaded:</div>                        
-                          <div style={{display: "flex", justifyContent: "center", width: "11rem", height: "11rem"}} className="image">
+                        <div className="w-full text-center text-gray-500 mb-1">Uploaded:</div>                        
+                          <div style={{display: "flex", justifyContent: "center", width: "90%", height: "11rem"}} className="image">
                             <img style={{width: "100%", height: "auto", objectFit: "contain"}} src={previewUrl} alt='image' /> 
                             </div> 
-                        <div className="w-full text-center text-gray-500">Click to add more</div>
+                        <div className="w-full text-center text-gray-500 mt-1">Click to add more</div>
                     </DropboxContainer>  
                     :
                     <DropboxContainer>
@@ -143,7 +143,7 @@ const PageContainer = styled.div`
 
 const DropboxContainer = styled.div`
     width: 95vw;
-    height: 60vw;
+    height: 70vw;
     background-color: #F1F1F1;
     border-radius: 10px;
     cursor: pointer;

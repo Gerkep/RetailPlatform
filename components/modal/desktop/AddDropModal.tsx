@@ -39,7 +39,7 @@ const DropModal = ({onClose, mobile}: any) => {
                 { (previewUrl && image) ?
                     <DropboxContainer>
                         <div className="w-full text-center text-gray-500 mb-2">Uploaded:</div>                        
-                          <div style={{display: "flex", justifyContent: "center", width: "15rem", height: "15rem"}} className="image">
+                          <div style={{display: "flex", justifyContent: "center", width: "90%", height: "15rem"}} className="image">
                             <img style={{width: "100%", height: "auto", objectFit: "contain"}} src={previewUrl} alt='image' /> 
                             </div> 
                         <div className="w-full text-center text-gray-500 mt-4">Drop/click to add more</div>
