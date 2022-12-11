@@ -151,6 +151,9 @@ import SellModal from "../../../components/modal/desktop/SellModal";
  const Price = styled.p`
     font-size: 2em;
     font-weight: 900;
+    @media (min-width: 768px) {
+        font-weight: 600;
+    }
  `
 
  const ProductInfoContainer = styled.div`
@@ -167,15 +170,6 @@ import SellModal from "../../../components/modal/desktop/SellModal";
      padding: 0 1rem 0 1rem;
      font-size: 1em;
      grid-area: product-brand;
- `
-
- const ProductPrice = styled.div`
-     @media (min-width: 768px) {
-         padding: 0 1rem 0 1rem;
-         font-size: 1.5em;
-         margin-top: 3vw;
-         font-weight: 500;
-     }
  `
 
  const ButtonContainer = styled.div`

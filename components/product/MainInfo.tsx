@@ -37,7 +37,7 @@ const ProductName = styled.div`
     overflow: hidden;
     grid-area: product-name;
     @media (min-width: 768px) {
-       font-size: 1.2em;
+       font-size: 1.4em;
     }
 `
 

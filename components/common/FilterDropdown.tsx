@@ -31,7 +31,7 @@ export default function Dropdown({values, value, onChange, error}: any) {
   return (
       <Listbox value={selected} onChange={handleChange}>
         <DropdownContainer >
-          <Listbox.Button className={"appearance-none flex items-center justify-end block w-full h-full pr-10 md:w-36 relative py-2 rounded-md placeholder-white focus:outline-none text-md"}>
+          <Listbox.Button className={"appearance-none flex items-center justify-end block w-full h-full md:w-40 pr-10 relative py-2 rounded-md placeholder-white focus:outline-none text-md"}>
             <span className="block truncate text-left">{selected ? selected : <div className='text-black'>FILTERS</div>}</span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2 2xl:pr-4">
               <HiChevronDown
@@ -84,7 +84,7 @@ export default function Dropdown({values, value, onChange, error}: any) {
 
 const DropdownContainer = styled.div`
  position: relative;
- width: 9.5rem;
+ width: 10rem;
  height: 100%;
  z-index: 40;
 `
