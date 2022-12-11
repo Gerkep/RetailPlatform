@@ -37,8 +37,7 @@ import SellModal from "../../../components/modal/desktop/SellModal";
         <PageContainer>     
         {openShipment && <ShipmentModal onClose={() => setOpenShipment(false)}/>}
         {openSell && <SellModal onClose={() => setOpenSell(false)}/>}
-        <YeppBadge />    
-        {!mobile && <BackArrow onClick={() => router.back()}><IoIosArrowBack></IoIosArrowBack><div style={{marginLeft: "0.7rem"}}>Back</div></BackArrow>}
+        <YeppBadge />   
          <Navbar showProfile={true} admin={true}  showHome={true} showUpcoming={true}/>
          <LoadingPage />
          <PageContent>
@@ -116,17 +115,6 @@ import SellModal from "../../../components/modal/desktop/SellModal";
  }
 
  export default Product;
-
- const BackArrow  = styled.button`
-    display: flex;
-    font-size: 1.2em;
-    align-items: center;
-    cursor: pointer;
-    position: absolute;
-    top: 3rem;
-    border: none;
-    background-color: transparent;
-`
 
  const PageContainer = styled.div`
      @media (min-width: 768px) {

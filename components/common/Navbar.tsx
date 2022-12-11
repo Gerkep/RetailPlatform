@@ -25,6 +25,11 @@ const Navbar = (props: {showProfile: boolean, admin: boolean, showHome: boolean,
     return (
         <>
         {openNewDropModal && <AddDropModal onClose={() => setOpenNewDropModal(false)} mobile={mobile}/>}
+        {!mobile &&
+            <LogoDesktop>
+                <Image alt="logo" style={{width: "auto", height: "2rem"}} src={logo}></Image>
+            </LogoDesktop>
+        }
         <NavbarContainer>
             <Link href="/">
                 <Logo>
@@ -80,6 +85,7 @@ const NavbarContainer = styled.div`
     @media (min-width: 768px) {
         background-color: black;
         padding: 1.5rem;
+        clip-path: polygon(50% 0, 100% 0%, 100% 100%, 60% 100%);
     }
 `
 
@@ -102,8 +108,14 @@ const NavIcon = styled.div`
     }
 `
 const Logo = styled.div`
+`
+const LogoDesktop = styled.div`
+    display: none;
     @media (min-width: 768px) {
-        filter: invert(1);
+        display: block;
+        position: absolute;
+        top: 1.5rem;
+        left: 1rem;
     }
 `
 
