@@ -7,7 +7,7 @@ import pants from "../../public/img/lvpants.png";
 import Product from "../../pages/add-drop";
 
 const items = [{name: "Match-Up Sneaker", price: "$270", image: shoe}, {name: "LV Premium Bag", price: "$320", image: bag}, {name: "DOUBLE-BREASTED PONT NEUF JACKET", price: "$277", image: jacket}, {name: "KARAKORAM DENIM PANTS", price: "$177", image: pants},
-{name: "Match-Up Sneaker", price: "$270", image: shoe}, {name: "LV Premium Bag", price: "$320", image: bag}, {name: "DOUBLE-BREASTED PONT NEUF JACKET", price: "$277", image: jacket}, {name: "KARAKORAM DENIM PANTS", price: "$177", image: pants},
+ {name: "LV Premium Bag", price: "$320", image: bag}, {name: "KARAKORAM DENIM PANTS", price: "$177", image: pants}, {name: "DOUBLE-BREASTED PONT NEUF JACKET", price: "$277", image: jacket}, {name: "Match-Up Sneaker", price: "$270", image: shoe}, {name: "Match-Up Sneaker", price: "$270", image: shoe},
 {name: "Match-Up Sneaker", price: "$270", image: shoe}, {name: "LV Premium Bag", price: "$320", image: bag}, {name: "DOUBLE-BREASTED PONT NEUF JACKET", price: "$277", image: jacket}, {name: "KARAKORAM DENIM PANTS", price: "$177", image: pants}]
 
 const Products = () => {
