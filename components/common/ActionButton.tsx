@@ -67,8 +67,7 @@ const Button = styled.button`
         bottom: 0;
         box-shadow: none;
         width: 15rem;
-        margin-left: 1rem;
-
+        margin-left: 0rem;
         margin-top: 0.5rem;
     }
 `

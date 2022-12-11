@@ -7,9 +7,7 @@ const MainInfo = (props: any) => {
         <MainProductInfo>
             <ProductName><h1>{props.name}</h1></ProductName>
             <ProductBrand>{props.brand}</ProductBrand>
-            {props.mobile && 
-                <ProductPrice>{props.children}</ProductPrice>
-            }
+            <ProductPrice>{props.children}</ProductPrice>
         </MainProductInfo>
     )
 }
@@ -27,8 +25,9 @@ const MainProductInfo = styled.div`
     "product-name product-price"
     "product-brand product-price";
     @media (min-width: 768px) {
-        display: block;
-    }
+        align-items: center;
+        height: 6rem;
+     }
 `
 
 const ProductName = styled.div`
@@ -38,7 +37,7 @@ const ProductName = styled.div`
     overflow: hidden;
     grid-area: product-name;
     @media (min-width: 768px) {
-       font-size: 2em;
+       font-size: 1.2em;
     }
 `
 

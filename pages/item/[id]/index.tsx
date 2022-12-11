@@ -15,15 +15,16 @@ import ActionButton from "../../../components/common/ActionButton";
 import { IoIosArrowBack } from "react-icons/io";
 import { useRouter } from 'next/router'
 import ShipmentModal from "../../../components/modal/desktop/ShipmentModal";
+import SellModal from "../../../components/modal/desktop/SellModal";
 
  const Product = () => {
 
-     const [isOwner, setIsOwner] = useState(false);
-     const [listed, setListed] = useState(true);
+     const [isOwner, setIsOwner] = useState(true);
+     const [listed, setListed] = useState(false);
      const [drop, setDrop] = useState(false);
      const [mobile, setMobile] = useState(true);
      const [openShipment, setOpenShipment] = useState(false);
-
+     const [openSell, setOpenSell] = useState(false);
      const router = useRouter();
 
      useEffect(() => {
@@ -35,6 +36,7 @@ import ShipmentModal from "../../../components/modal/desktop/ShipmentModal";
      return (
         <PageContainer>     
         {openShipment && <ShipmentModal onClose={() => setOpenShipment(false)}/>}
+        {openSell && <SellModal onClose={() => setOpenSell(false)}/>}
         <YeppBadge />    
         <BackArrow onClick={() => router.back()}><IoIosArrowBack></IoIosArrowBack><div style={{marginLeft: "0.7rem"}}>Back</div></BackArrow>
          <Navbar showProfile={true} admin={true}  showHome={true} showUpcoming={true}/>
@@ -65,16 +67,22 @@ import ShipmentModal from "../../../components/modal/desktop/ShipmentModal";
                              <Props owner="gerke.eth" invoice="" condition=""/>
 
                      }
-                     {!mobile && 
+                     {(!mobile && listed) && 
                          <ProductPrice>$323</ProductPrice>
                      }
+                     <ButtonContainer>
                      {isOwner ?
                          listed ?
                              <ActionButton text="DELIST" />
                          :
+                            mobile ?
                              <Link href="/sell/1">
                                      <ActionButton text="LIST ITEM"/>
                              </Link>
+                             :
+                             <button onClick={() => setOpenSell(true)}>
+                                <ActionButton text="LIST ITEM"/>
+                             </button>
                          :
                          listed ?
                             mobile ?
@@ -98,6 +106,7 @@ import ShipmentModal from "../../../components/modal/desktop/ShipmentModal";
                              :
                              <></>
                      }
+                     </ButtonContainer>
                  </div>
              </ProductInfoContainer>
          </PageContent>
@@ -166,4 +175,10 @@ import ShipmentModal from "../../../components/modal/desktop/ShipmentModal";
          margin-top: 3vw;
          font-weight: 500;
      }
+ `
+
+ const ButtonContainer = styled.div`
+    @media (min-width: 768px) {
+        padding: 0 0rem 0 1rem;
+    }
  `

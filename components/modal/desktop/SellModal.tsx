@@ -13,23 +13,25 @@ import shoe from "../../../public/img/shoe.png";
 const conditions = ["New", "Used"]
 const invoices = ["No invoice", "VAT invoice"]
 
-const SellModal = () => {
+const SellModal = ({onClose}: any) => {
 
     const [condition, setCondition] = useState("New");
     const [invoice, setInvoice] = useState("No invoice");
     const router = useRouter();
     
     return (
-        <ModalTemplate width="32rem" onClose={() => router.push("/profile/gerke.eth")}>
-            <Centered>
-                <ProductImage image={shoe}/>
-            </Centered>
+        <ModalTemplate width="32rem" onClose={() => onClose()}>
+                <Centered>
+                    <ImageContainer>
+                        <ProductImage image={shoe}/>
+                    </ImageContainer>
+                </Centered>
             <MainInfo name="Match-Up Sneaker" brand="Louis Vuitton"><div style={{fontSize: "1.2em"}}>$<PriceInput placeholder="123" /></div></MainInfo>
             <InputContainer>
                     <Label>Description</Label>
                     <TextArea placeholder="Your item description"></TextArea>
             </InputContainer>
-            <div style={{display: "flex", width: "100%", justifyContent: "center"}}>
+            <DropdownsContainer style={{display: "flex"}}>
             <InputContainer>
                     <Label>Condition</Label>
                     <InputDropdown values={conditions} value={condition} onChange={setCondition} error={undefined} id="1"/>
@@ -38,7 +40,7 @@ const SellModal = () => {
                     <Label>Invoice</Label>
                     <InputDropdown values={invoices} value={invoice} onChange={setInvoice} error={undefined} id="2"/>
             </InputContainer>
-            </div>
+            </DropdownsContainer>
             <div style={{marginTop: "1rem"}} onClick={() => router.replace("/item/1")}>
                 <Centered>
                 <ActionButton text="LIST FOR SALE" icon=""/>
@@ -64,6 +66,9 @@ const PriceInput = styled.input`
     outline: none;
     border-radius: 10px;
     padding-left: 0.5rem;
+    @media (min-width: 768px) {
+        width: 6rem;
+    }
 `
 
 const TextArea = styled.textarea`
@@ -76,4 +81,22 @@ const TextArea = styled.textarea`
     border-radius: 10px;
     padding: 0.3rem 0.5rem 0.3rem 0.5rem;
     font-size: 1em;
+    @media (min-width: 768px) {
+        height: 4.5rem;
+    }
+`
+
+const ImageContainer = styled.div`
+    @media (min-width: 768px) {
+        width: 12rem;
+        height: 12rem;
+        overflow: hidden;
+    }
+`
+
+const DropdownsContainer = styled.div`
+@media (min-width: 768px) {
+    justify-content: space-between;
+    width: 26.5rem;
+}
 `

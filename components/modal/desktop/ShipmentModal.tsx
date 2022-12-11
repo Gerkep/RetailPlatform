@@ -19,7 +19,7 @@ const ShipmentModal = ({onClose}: any) => {
 
     return (
         <ModalTemplate width="32rem" onClose={() => onClose()}>
-            <BackArrow onClick={() => onClose()}><IoIosClose></IoIosClose></BackArrow>
+            <CloseModal onClick={() => onClose()}><IoIosClose></IoIosClose></CloseModal>
             <Centered>
                 <PageTitle>Delivery details</PageTitle>
             </Centered>
@@ -75,7 +75,7 @@ const ShipmentModal = ({onClose}: any) => {
 
 export default ShipmentModal;
 
-const BackArrow  = styled.button`
+const CloseModal  = styled.button`
     display: flex;
     font-size: 2.2em;
     align-items: center;
@@ -121,6 +121,9 @@ const Input = styled.input`
 `
 const Prop = styled.div`
     margin: 1rem 2.5rem 1rem 1.5rem;
+    @media (min-width: 768px) {
+        margin-top: 0.5rem;
+    }
 `
 
 const PropValue = styled.p`
@@ -128,8 +131,9 @@ const PropValue = styled.p`
     font-size: 0.8em;
     display: flex;
     align-items: center;
+    
 `
 const PreviewContainer = styled.div`
     width: 100%;
-    padding: 0 1.5rem 0 1.5rem;
+    padding: 0 1.5rem 0.5rem 1.5rem;
 `

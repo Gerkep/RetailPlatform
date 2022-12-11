@@ -101,6 +101,7 @@ const ProductName = styled.h2`
     font-size: 1em;
     @media (min-width: 768px) {
         font-size: 1.5em;
+        font-weight: 700;
     }
 `
 
@@ -112,8 +113,9 @@ const DateContainer = styled.p`
     align-items: center;
     width: 95%;
     @media (min-width: 768px) {
-        font-size: 0.8em;
+        font-size: 1em;
         margin-top: 0.5rem;
+        font-weight: 400;
     }
 `
 
@@ -184,6 +186,9 @@ const NotifyButton = styled.button`
         margin-top: 2.5rem;
         width: 12rem;
         height: 2.4rem;
+        &:hover {
+            background-color: #EAEAEA;
+        }
     }
 `
 

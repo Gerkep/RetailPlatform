@@ -7,11 +7,24 @@ import plusIcon from "../../public/img/icons/plusIcon.png";
 import marketplaceIcon from "../../public/img/icons/marketplaceIcon.png";
 import calendarIcon from "../../public/img/icons/calendarBlackIcon.png";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import AddDropModal from "../modal/desktop/AddDropModal";
 
 const Navbar = (props: {showProfile: boolean, admin: boolean, showHome: boolean, showUpcoming: boolean}) => {
     const {showProfile, admin, showHome, showUpcoming} = props;
 
+    const [mobile, setMobile] = useState(true);
+    const [openNewDropModal, setOpenNewDropModal] = useState(false);
+
+    useEffect(() => {
+        if(window.innerWidth >= 768){
+          setMobile(false);
+        }
+    }, [])
+
     return (
+        <>
+        {openNewDropModal && <AddDropModal onClose={() => setOpenNewDropModal(false)} mobile={mobile}/>}
         <NavbarContainer>
             <Link href="/">
                 <Logo>
@@ -20,11 +33,16 @@ const Navbar = (props: {showProfile: boolean, admin: boolean, showHome: boolean,
             </Link>
             <Navigation>
                 {admin &&
+                    mobile ?
                     <Link href="/add-drop">
                         <NavIcon>
                             <Image alt="logo" style={{width: "auto", height: "1.5rem"}} src={plusIcon}></Image>
                         </NavIcon>
                     </Link>
+                    :
+                    <NavIcon onClick={() => setOpenNewDropModal(true)}>
+                        <Image alt="logo" style={{width: "auto", height: "1.5rem"}} src={plusIcon}></Image>
+                    </NavIcon>
                 }
                 <Link href="/profile/gerke.eth">
                     <NavIcon>
@@ -43,6 +61,7 @@ const Navbar = (props: {showProfile: boolean, admin: boolean, showHome: boolean,
                 </Link>
             </Navigation>
         </NavbarContainer>
+        </>
     )
 }
 
